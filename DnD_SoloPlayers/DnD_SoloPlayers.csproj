@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08529AAA-B925-4692-BF90-7395A72A1A9A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DnD_SoloPlayers</RootNamespace>
+    <AssemblyName>DnD_SoloPlayers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\berni\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://bernardopiedade.com/bernardopiedade/DnD_SoloPlayers/DnD_SoloPlayers.zip/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_resized.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>451D41002654114E11F6C02D761D1ADCF609492D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DnD_SoloPlayers_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add_Side_Quest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Side_Quest.Designer.cs">
+      <DependentUpon>Add_Side_Quest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AH.Designer.cs">
+      <DependentUpon>AH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CH.Designer.cs">
+      <DependentUpon>CH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharNameList.cs" />
+    <Compile Include="DB_Roll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DB_Roll.Designer.cs">
+      <DependentUpon>DB_Roll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB_Roll_Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DB_Roll_Time.Designer.cs">
+      <DependentUpon>DB_Roll_Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiceRoll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiceRoll.Designer.cs">
+      <DependentUpon>DiceRoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hooks_CustomSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hooks_CustomSearch.Designer.cs">
+      <DependentUpon>Hooks_CustomSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="I_BlackMarket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I_BlackMarket.Designer.cs">
+      <DependentUpon>I_BlackMarket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="I_Magical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I_Magical.Designer.cs">
+      <DependentUpon>I_Magical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="I_Weaponsmith.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I_Weaponsmith.Designer.cs">
+      <DependentUpon>I_Weaponsmith.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NPC_CustomSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NPC_CustomSearch.Designer.cs">
+      <DependentUpon>NPC_CustomSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PS_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PS_Edit.Designer.cs">
+      <DependentUpon>PS_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Sheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Sheet.Designer.cs">
+      <DependentUpon>P_Sheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RE_Beach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RE_Beach.Designer.cs">
+      <DependentUpon>RE_Beach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RE_Desert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RE_Desert.Designer.cs">
+      <DependentUpon>RE_Desert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RE_Dungeon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RE_Dungeon.Designer.cs">
+      <DependentUpon>RE_Dungeon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RE_Forest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RE_Forest.Designer.cs">
+      <DependentUpon>RE_Forest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RNPC.Designer.cs">
+      <DependentUpon>RNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SD_Custom_Quests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SD_Custom_Quests.Designer.cs">
+      <DependentUpon>SD_Custom_Quests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQ_Town_Village.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQ_Town_Village.Designer.cs">
+      <DependentUpon>SQ_Town_Village.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates_Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Updates_Panel.Designer.cs">
+      <DependentUpon>Updates_Panel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Add_Side_Quest.resx">
+      <DependentUpon>Add_Side_Quest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AH.resx">
+      <DependentUpon>AH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CH.resx">
+      <DependentUpon>CH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DB_Roll.resx">
+      <DependentUpon>DB_Roll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DB_Roll_Time.resx">
+      <DependentUpon>DB_Roll_Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiceRoll.resx">
+      <DependentUpon>DiceRoll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hooks_CustomSearch.resx">
+      <DependentUpon>Hooks_CustomSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I_BlackMarket.resx">
+      <DependentUpon>I_BlackMarket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I_Magical.resx">
+      <DependentUpon>I_Magical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I_Weaponsmith.resx">
+      <DependentUpon>I_Weaponsmith.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NPC_CustomSearch.resx">
+      <DependentUpon>NPC_CustomSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PS_Edit.resx">
+      <DependentUpon>PS_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Sheet.resx">
+      <DependentUpon>P_Sheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RE_Beach.resx">
+      <DependentUpon>RE_Beach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RE_Desert.resx">
+      <DependentUpon>RE_Desert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RE_Dungeon.resx">
+      <DependentUpon>RE_Dungeon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RE_Forest.resx">
+      <DependentUpon>RE_Forest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RNPC.resx">
+      <DependentUpon>RNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SD_Custom_Quests.resx">
+      <DependentUpon>SD_Custom_Quests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQ_Town_Village.resx">
+      <DependentUpon>SQ_Town_Village.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updates_Panel.resx">
+      <DependentUpon>Updates_Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DnD_SoloPlayers_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo_resized.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
