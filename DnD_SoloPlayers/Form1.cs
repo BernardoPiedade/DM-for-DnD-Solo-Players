@@ -13,6 +13,8 @@ namespace DnD_SoloPlayers
         static string checkId = "";
         static string lang = "English";
 
+        //hello
+
         public Form1()
         {
             InitializeComponent();
