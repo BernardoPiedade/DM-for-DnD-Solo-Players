@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<player>
+  <name>Quirn Forn Hunj</name>
+  <level>1</level>
+  <ac>10</ac>
+  <class>Paladin</class>
+  <race>Halfling</race>
+  <str>11</str>
+  <dex>7</dex>
+  <con>6</con>
+  <int>4</int>
+  <wis>3</wis>
+  <cha>15</cha>
+</player>
