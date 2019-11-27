@@ -163,6 +163,7 @@ namespace DnD_SoloPlayers
             //not visible
             Player_Label.Visible = false;
             PlayerSheet_Button.Visible = false;
+            Pet_Sheet_Button.Visible = false;
             DiceBag_Label.Visible = false;
             DB_Roll.Visible = false;
             DB_Roll_Time.Visible = false;
@@ -258,6 +259,7 @@ namespace DnD_SoloPlayers
             //not visible
             Player_Label.Visible = false;
             PlayerSheet_Button.Visible = false;
+            Pet_Sheet_Button.Visible = false;
             DiceBag_Label.Visible = false;
             DB_Roll.Visible = false;
             DB_Roll_Time.Visible = false;
@@ -345,6 +347,7 @@ namespace DnD_SoloPlayers
             DB_Roll_Time.Visible = true;
             Player_Label.Visible = true;
             PlayerSheet_Button.Visible = true;
+            Pet_Sheet_Button.Visible = true;
             Version_Label.Visible = true;
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
@@ -395,6 +398,7 @@ namespace DnD_SoloPlayers
             DB_Roll_Time.Visible = false;
             Player_Label.Visible = false;
             PlayerSheet_Button.Visible = false;
+            Pet_Sheet_Button.Visible = false;
             SD_Custom_Quests.Visible = false;
 
             //visible
@@ -433,5 +437,7 @@ namespace DnD_SoloPlayers
         }
 
         private void SD_Custom_Quests_Click(object sender, EventArgs e) => new SD_Custom_Quests().Show();
+
+        private void Pet_Sheet_Button_Click(object sender, EventArgs e) => new Pet_Sheet().Show();
     }
 }

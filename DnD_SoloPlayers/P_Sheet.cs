@@ -174,7 +174,11 @@ namespace DnD_SoloPlayers
             HP_Value.Text = hp.ToString();
         }
 
-        private void PS_Edit_Button_Click(object sender, EventArgs e) => new PS_Edit().Show();
+        private void PS_Edit_Button_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+            new PS_Edit().Show();
+        }
 
         private void Generate_PlayerSheet_Click(object sender, EventArgs e)
         {

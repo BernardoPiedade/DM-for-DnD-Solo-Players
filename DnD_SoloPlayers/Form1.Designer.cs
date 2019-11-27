@@ -69,6 +69,7 @@
             this.UserID_Number = new System.Windows.Forms.Label();
             this.SD_Custom_Quests = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Pet_Sheet_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -486,12 +487,23 @@
             this.label1.TabIndex = 51;
             this.label1.Text = "© 2019 Copyright: Bernardo Piedade";
             // 
+            // Pet_Sheet_Button
+            // 
+            this.Pet_Sheet_Button.Location = new System.Drawing.Point(203, 153);
+            this.Pet_Sheet_Button.Name = "Pet_Sheet_Button";
+            this.Pet_Sheet_Button.Size = new System.Drawing.Size(75, 23);
+            this.Pet_Sheet_Button.TabIndex = 52;
+            this.Pet_Sheet_Button.Text = "Pet";
+            this.Pet_Sheet_Button.UseVisualStyleBackColor = true;
+            this.Pet_Sheet_Button.Click += new System.EventHandler(this.Pet_Sheet_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 316);
+            this.Controls.Add(this.Pet_Sheet_Button);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SD_Custom_Quests);
             this.Controls.Add(this.UserID_Number);
@@ -584,6 +596,7 @@
         private System.Windows.Forms.Label UserID_Number;
         private System.Windows.Forms.Button SD_Custom_Quests;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Pet_Sheet_Button;
     }
 }
 

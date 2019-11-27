@@ -17,7 +17,77 @@ namespace DnD_SoloPlayers
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-        }
+
+            XmlDocument playerSheet = new XmlDocument();
+            playerSheet.Load(filename: "xml\\playersheet.xml");
+
+            XmlNodeList playerSheetNameNodeList = playerSheet.GetElementsByTagName("name");
+            XmlNodeList playerSheetLevelNodeList = playerSheet.GetElementsByTagName("level");
+            XmlNodeList playerSheetAcNodeList = playerSheet.GetElementsByTagName("ac");
+            XmlNodeList playerSheetClassNodeList = playerSheet.GetElementsByTagName("class");
+            XmlNodeList playerSheetRaceNodeList = playerSheet.GetElementsByTagName("race");
+            XmlNodeList playerSheetStrNodeList = playerSheet.GetElementsByTagName("str");
+            XmlNodeList playerSheetDexNodeList = playerSheet.GetElementsByTagName("dex");
+            XmlNodeList playerSheetConNodeList = playerSheet.GetElementsByTagName("con");
+            XmlNodeList playerSheetIntNodeList = playerSheet.GetElementsByTagName("int");
+            XmlNodeList playerSheetWisNodeList = playerSheet.GetElementsByTagName("wis");
+            XmlNodeList playerSheetChaNodeList = playerSheet.GetElementsByTagName("cha");
+
+                foreach (XmlNode node in playerSheetNameNodeList)
+                {
+                    PS_Edit_Name.Text = node.InnerText;
+                }
+
+                foreach (XmlNode node in playerSheetLevelNodeList)
+                {
+                    PS_Edit_Level.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetAcNodeList)
+                {
+                    PS_Edit_Ac.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetClassNodeList)
+                {
+                    PS_Edit_Class.Text = node.InnerText;
+                }
+
+                foreach (XmlNode node in playerSheetRaceNodeList)
+                {
+                    PS_Edit_Race.Text = node.InnerText;
+                }
+
+                foreach (XmlNode node in playerSheetStrNodeList)
+                {
+                    PS_Edit_Str.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetDexNodeList)
+                {
+                    PS_Edit_Dex.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetConNodeList)
+                {
+                    PS_Edit_Con.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetIntNodeList)
+                {
+                    PS_Edit_Int.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetWisNodeList)
+                {
+                    PS_Edit_Wis.Value = Convert.ToInt32(node.InnerText);
+                }
+
+                foreach (XmlNode node in playerSheetChaNodeList)
+                {
+                    PS_Edit_Cha.Value = Convert.ToInt32(node.InnerText);
+                }
+            }
 
         private void PS_Edit_Save_Click(object sender, EventArgs e)
         {
@@ -107,6 +177,7 @@ namespace DnD_SoloPlayers
 
                 playerSheet.Save(filename: "xml\\playersheet.xml");
 
+                new P_Sheet().Show();
                 this.Close();
             }
             catch
