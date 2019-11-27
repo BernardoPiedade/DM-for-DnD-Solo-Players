@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Xml;
 using MySql.Data.MySqlClient;
 using System.Drawing;
+using System.IO;
 
 namespace DnD_SoloPlayers
 {

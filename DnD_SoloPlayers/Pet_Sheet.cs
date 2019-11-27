@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,30 @@ namespace DnD_SoloPlayers
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+
+            string path = "xml\\petsheet.xml";
+            if (!File.Exists(path))
+            {
+                using (XmlWriter petxml = XmlWriter.Create("xml\\petsheet.xml"))
+                {
+                    petxml.WriteStartElement("pet");
+                    petxml.WriteElementString("name","");
+                    petxml.WriteElementString("creature","");
+                    petxml.WriteElementString("size", "");
+                    petxml.WriteElementString("alignment", "");
+                    petxml.WriteElementString("type", "");
+                    petxml.WriteElementString("speed", "");
+                    petxml.WriteElementString("ac", "");
+                    petxml.WriteElementString("str", "");
+                    petxml.WriteElementString("dex", "");
+                    petxml.WriteElementString("con", "");
+                    petxml.WriteElementString("int", "");
+                    petxml.WriteElementString("wis", "");
+                    petxml.WriteElementString("cha", "");
+                    petxml.WriteEndElement();
+                    petxml.Flush();
+                }
+            }
 
             try
             {
