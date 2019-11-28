@@ -10,9 +10,8 @@ namespace DnD_SoloPlayers
     public partial class Form1 : Form
     {
         static string version = "";
-        static string actualVersion = "1.4.1";
+        static string actualVersion = "1.4.3";
         static string checkId = "";
-        static string lang = "English";
 
         public Form1()
         {
@@ -348,7 +347,7 @@ namespace DnD_SoloPlayers
             DB_Roll_Time.Visible = true;
             Player_Label.Visible = true;
             PlayerSheet_Button.Visible = true;
-            Pet_Sheet_Button.Visible = true;
+            Pet_Sheet_Button.Visible = false;
             Version_Label.Visible = true;
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
