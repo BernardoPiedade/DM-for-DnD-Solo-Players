@@ -28,9 +28,10 @@ namespace DnD_SoloPlayers
             string v124 = "Version: 1.2.4 \r\nNew: \r\n\t-> Added off-feature \"update.exe\";\r\n\t-> Fixed minor bugs;";
             string v140 = "Version: 1.4.0 \r\nNew: \r\n\t-> New design (version 2.0b);\r\n\t-> Fixed bug on generate random player sheet where ability scores would all \r\n\t get the same value;\r\n\t-> Added more Adventure / Campaign Hooks;\r\n\t-> Added custom quests on side-quests;\r\n\t-> Added new weaponsmith items (some really neat ones);\r\n\t-> Fixed some bugs on custom search (hooks and npc);";
             string v141 = "Version: 1.4.1 \r\nNew: \r\n\t-> Bug fixes on rolling dice and custom quests;\r\n\t-> Quests will now be reviewed before being available;";
-            string v143 = "Version: 1.4.2 \r\nNew: \r\n\t-> Bug fixes on player sheet edit;";
+            string v143 = "Version: 1.4.3 \r\nNew: \r\n\t-> Bug fixes on player sheet edit;";
+            string v144 = "Version: 1.4.4 \r\nNew: \r\n\t-> Minor bug fixes;\r\n\t-> Updated database";
 
-            textBox1.Text = v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
+            textBox1.Text = v144 + "\r\n\r\n" + v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
         }
     }
 }

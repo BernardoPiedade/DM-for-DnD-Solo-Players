@@ -10,7 +10,7 @@ namespace DnD_SoloPlayers
     public partial class Form1 : Form
     {
         static string version = "";
-        static string actualVersion = "1.4.3";
+        static string actualVersion = "1.4.4";
         static string checkId = "";
 
         public Form1()
@@ -82,6 +82,35 @@ namespace DnD_SoloPlayers
             }
             catch
             {
+            }
+
+            try
+            {
+                XmlDocument userid = new XmlDocument();
+                userid.Load(filename: "xml\\user\\userId.xml");
+
+                XmlNodeList idX = userid.GetElementsByTagName("userId");
+
+                foreach (XmlNode node in idX)
+                {
+                    checkId = node.InnerText;
+                }
+
+                string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
+                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    using(MySqlCommand a = new MySqlCommand("INSERT INTO activeUsers(userId) VALUES ("+checkId+")", conn))
+                    {
+                        a.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch
+            {
+
             }
 
             try
@@ -439,5 +468,37 @@ namespace DnD_SoloPlayers
         private void SD_Custom_Quests_Click(object sender, EventArgs e) => new SD_Custom_Quests().Show();
 
         private void Pet_Sheet_Button_Click(object sender, EventArgs e) => new Pet_Sheet().Show();
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                XmlDocument userid = new XmlDocument();
+                userid.Load(filename: "xml\\user\\userId.xml");
+
+                XmlNodeList idX = userid.GetElementsByTagName("userId");
+
+                foreach (XmlNode node in idX)
+                {
+                    checkId = node.InnerText;
+                }
+
+                string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
+                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    using (MySqlCommand a = new MySqlCommand("DELETE FROM activeUsers WHERE userId = " + checkId + "", conn))
+                    {
+                        a.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
