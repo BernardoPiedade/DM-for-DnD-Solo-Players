@@ -40,12 +40,18 @@ namespace DnD_SoloPlayers
 
                 foreach (XmlNode node in playerSheetLevelNodeList)
                 {
-                    PS_Edit_Level.Value = Convert.ToInt32(node.InnerText);
+                    if(node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Level.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetAcNodeList)
                 {
-                    PS_Edit_Ac.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Ac.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetClassNodeList)
@@ -60,34 +66,52 @@ namespace DnD_SoloPlayers
 
                 foreach (XmlNode node in playerSheetStrNodeList)
                 {
-                    PS_Edit_Str.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Str.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetDexNodeList)
                 {
-                    PS_Edit_Dex.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Dex.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetConNodeList)
                 {
-                    PS_Edit_Con.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Con.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetIntNodeList)
                 {
-                    PS_Edit_Int.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Int.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetWisNodeList)
                 {
-                    PS_Edit_Wis.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Wis.Value = 0;
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetChaNodeList)
                 {
-                    PS_Edit_Cha.Value = Convert.ToInt32(node.InnerText);
+                    if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
+                    {
+                        PS_Edit_Cha.Value = 0;
+                    }
                 }
-            }
+        }
 
         private void PS_Edit_Save_Click(object sender, EventArgs e)
         {

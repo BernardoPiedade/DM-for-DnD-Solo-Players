@@ -500,5 +500,37 @@ namespace DnD_SoloPlayers
 
             }
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                XmlDocument userid = new XmlDocument();
+                userid.Load(filename: "xml\\user\\userId.xml");
+
+                XmlNodeList idX = userid.GetElementsByTagName("userId");
+
+                foreach (XmlNode node in idX)
+                {
+                    checkId = node.InnerText;
+                }
+
+                string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
+                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    using (MySqlCommand a = new MySqlCommand("DELETE FROM activeUsers WHERE userId = " + checkId + "", conn))
+                    {
+                        a.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

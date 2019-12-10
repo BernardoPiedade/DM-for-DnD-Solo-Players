@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(567, 318);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Updates_Panel";
             this.Text = "Updates Panel";
             this.ResumeLayout(false);

@@ -73,6 +73,7 @@
             this.Controls.Add(this.Add_Side_Quest);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Roll_Side_Quest);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SD_Custom_Quests";
             this.Text = "Side Quests - Custom Quest";
             this.ResumeLayout(false);

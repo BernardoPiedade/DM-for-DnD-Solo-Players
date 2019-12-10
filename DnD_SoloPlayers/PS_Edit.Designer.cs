@@ -289,6 +289,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PS_Edit";
             this.Text = "Player Sheet Edit";
             ((System.ComponentModel.ISupportInitialize)(this.PS_Edit_Level)).EndInit();

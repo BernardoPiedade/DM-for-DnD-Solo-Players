@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <player>
-  <name></name>
-  <level></level>
-  <ac></ac>
-  <class></class>
-  <race></race>
-  <str></str>
-  <dex></dex>
-  <con></con>
-  <int></int>
-  <wis></wis>
-  <cha></cha>
+  <name>
+  </name>
+  <level>0</level>
+  <ac>0</ac>
+  <class>
+  </class>
+  <race>
+  </race>
+  <str>0</str>
+  <dex>0</dex>
+  <con>0</con>
+  <int>0</int>
+  <wis>0</wis>
+  <cha>0</cha>
 </player>

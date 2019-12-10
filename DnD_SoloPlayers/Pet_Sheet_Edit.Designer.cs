@@ -353,6 +353,7 @@
             this.Controls.Add(this.Pet_Sheet_Edit_Save);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Pet_Sheet_Edit";
             this.Text = "Pet Sheet - Edit";
             ((System.ComponentModel.ISupportInitialize)(this.Pet_Size_Edit)).EndInit();

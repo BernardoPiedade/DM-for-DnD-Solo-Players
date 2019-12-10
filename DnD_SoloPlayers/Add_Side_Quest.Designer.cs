@@ -105,6 +105,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Quest_Text);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Add_Side_Quest";
             this.Text = "Side Quest - Add Side Quest";
             this.ResumeLayout(false);

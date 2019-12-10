@@ -594,6 +594,7 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label12);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Pet_Sheet";
             this.Text = "Pet Sheet";
             this.groupBox1.ResumeLayout(false);

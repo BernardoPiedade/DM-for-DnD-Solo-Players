@@ -126,6 +126,7 @@
             this.Controls.Add(this.Long_Time_B);
             this.Controls.Add(this.Medium_Time_B);
             this.Controls.Add(this.Short_Time_B);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DB_Roll_Time";
             this.Text = "Dice Bag - Roll for time";
             this.ResumeLayout(false);
