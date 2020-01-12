@@ -70,6 +70,7 @@
             this.SD_Custom_Quests = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Pet_Sheet_Button = new System.Windows.Forms.Button();
+            this.P_Spell_List_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -497,12 +498,23 @@
             this.Pet_Sheet_Button.UseVisualStyleBackColor = true;
             this.Pet_Sheet_Button.Click += new System.EventHandler(this.Pet_Sheet_Button_Click);
             // 
+            // P_Spell_List_Button
+            // 
+            this.P_Spell_List_Button.Location = new System.Drawing.Point(203, 182);
+            this.P_Spell_List_Button.Name = "P_Spell_List_Button";
+            this.P_Spell_List_Button.Size = new System.Drawing.Size(75, 23);
+            this.P_Spell_List_Button.TabIndex = 53;
+            this.P_Spell_List_Button.Text = "Spell List";
+            this.P_Spell_List_Button.UseVisualStyleBackColor = true;
+            this.P_Spell_List_Button.Click += new System.EventHandler(this.P_Spell_List_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 316);
+            this.Controls.Add(this.P_Spell_List_Button);
             this.Controls.Add(this.Pet_Sheet_Button);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SD_Custom_Quests);
@@ -599,6 +611,7 @@
         private System.Windows.Forms.Button SD_Custom_Quests;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Pet_Sheet_Button;
+        private System.Windows.Forms.Button P_Spell_List_Button;
     }
 }
 

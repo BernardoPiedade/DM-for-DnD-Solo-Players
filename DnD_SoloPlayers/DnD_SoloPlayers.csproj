@@ -248,6 +248,13 @@
     <Compile Include="SD_Custom_Quests.Designer.cs">
       <DependentUpon>SD_Custom_Quests.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpellList_Class.cs" />
+    <Compile Include="Spell_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spell_List.Designer.cs">
+      <DependentUpon>Spell_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQ_Town_Village.cs">
       <SubType>Form</SubType>
     </Compile>

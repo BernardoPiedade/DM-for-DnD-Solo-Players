@@ -181,6 +181,57 @@ namespace DnD_SoloPlayers
                 
             }
 
+            int getActiveUsers = 0;
+            int getRecordUsers = 0;
+
+            try
+            {
+                string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
+                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    using(MySqlCommand c = new MySqlCommand("SELECT * FROM activeUsers", conn))
+                    {
+                        c.ExecuteNonQuery();
+                        MySqlDataReader reader = c.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                getActiveUsers = (int)reader["userId"];
+                            }
+                        }
+                    }
+
+                    using(MySqlCommand b = new MySqlCommand("SELECT * FROM recordUsers", conn))
+                    {
+                        b.ExecuteNonQuery();
+                        MySqlDataReader reader2 = b.ExecuteReader();
+                        if (reader2.HasRows)
+                        {
+                            while (reader2.Read())
+                            {
+                                getRecordUsers = (int)reader2["num"];
+                            }
+                        }
+                    }
+
+                    if(getActiveUsers > getRecordUsers)
+                    {
+                        using (MySqlCommand a = new MySqlCommand("UPDATE recordUsers SET num = num + 1", conn))
+                        {
+                            a.ExecuteNonQuery();
+                        }
+                        conn.Close();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+
             //change button color
 
             OracleMenu_Button.BackColor = SystemColors.ControlDarkDark;
@@ -193,6 +244,7 @@ namespace DnD_SoloPlayers
             Player_Label.Visible = false;
             PlayerSheet_Button.Visible = false;
             Pet_Sheet_Button.Visible = false;
+            P_Spell_List_Button.Visible = false;
             DiceBag_Label.Visible = false;
             DB_Roll.Visible = false;
             DB_Roll_Time.Visible = false;
@@ -288,6 +340,7 @@ namespace DnD_SoloPlayers
             //not visible
             Player_Label.Visible = false;
             PlayerSheet_Button.Visible = false;
+            P_Spell_List_Button.Visible = false;
             Pet_Sheet_Button.Visible = false;
             DiceBag_Label.Visible = false;
             DB_Roll.Visible = false;
@@ -376,7 +429,8 @@ namespace DnD_SoloPlayers
             DB_Roll_Time.Visible = true;
             Player_Label.Visible = true;
             PlayerSheet_Button.Visible = true;
-            Pet_Sheet_Button.Visible = false;
+            P_Spell_List_Button.Visible = true;
+            Pet_Sheet_Button.Visible = true;
             Version_Label.Visible = true;
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
@@ -427,6 +481,7 @@ namespace DnD_SoloPlayers
             DB_Roll_Time.Visible = false;
             Player_Label.Visible = false;
             PlayerSheet_Button.Visible = false;
+            P_Spell_List_Button.Visible = false;
             Pet_Sheet_Button.Visible = false;
             SD_Custom_Quests.Visible = false;
 
@@ -532,5 +587,7 @@ namespace DnD_SoloPlayers
 
             }
         }
+
+        private void P_Spell_List_Button_Click(object sender, EventArgs e) => new Spell_List().Show();
     }
 }
