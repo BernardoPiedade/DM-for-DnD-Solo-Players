@@ -191,7 +191,7 @@ namespace DnD_SoloPlayers
                 {
                     conn.Open();
 
-                    using(MySqlCommand c = new MySqlCommand("SELECT * FROM activeUsers", conn))
+                    using(MySqlCommand c = new MySqlCommand("SELECT COUNT(*) FROM activeUsers", conn))
                     {
                         c.ExecuteNonQuery();
                         MySqlDataReader reader = c.ExecuteReader();
@@ -203,6 +203,9 @@ namespace DnD_SoloPlayers
                             }
                         }
                     }
+
+                    conn.Close();
+                    conn.Open();
 
                     using(MySqlCommand b = new MySqlCommand("SELECT * FROM recordUsers", conn))
                     {
@@ -219,7 +222,7 @@ namespace DnD_SoloPlayers
 
                     if(getActiveUsers > getRecordUsers)
                     {
-                        using (MySqlCommand a = new MySqlCommand("UPDATE recordUsers SET num = num + 1", conn))
+                        using (MySqlCommand a = new MySqlCommand("UPDATE recordUsers SET num = "+getActiveUsers, conn))
                         {
                             a.ExecuteNonQuery();
                         }
