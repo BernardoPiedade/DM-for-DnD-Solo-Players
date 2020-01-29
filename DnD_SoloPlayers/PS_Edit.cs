@@ -44,6 +44,10 @@ namespace DnD_SoloPlayers
                     {
                         PS_Edit_Level.Value = 0;
                     }
+                    else
+                    {
+                        PS_Edit_Level.Value = Int32.Parse(node.InnerText);
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetAcNodeList)
@@ -51,6 +55,10 @@ namespace DnD_SoloPlayers
                     if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
                     {
                         PS_Edit_Ac.Value = 0;
+                    }
+                    else
+                    {
+                        PS_Edit_Ac.Value = Int32.Parse(node.InnerText);
                     }
                 }
 
@@ -70,6 +78,10 @@ namespace DnD_SoloPlayers
                     {
                         PS_Edit_Str.Value = 0;
                     }
+                    else
+                    {
+                        PS_Edit_Str.Value = Int32.Parse(node.InnerText);
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetDexNodeList)
@@ -77,6 +89,10 @@ namespace DnD_SoloPlayers
                     if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
                     {
                         PS_Edit_Dex.Value = 0;
+                    }
+                    else
+                    {
+                        PS_Edit_Dex.Value = Int32.Parse(node.InnerText);
                     }
                 }
 
@@ -86,6 +102,10 @@ namespace DnD_SoloPlayers
                     {
                         PS_Edit_Con.Value = 0;
                     }
+                    else
+                    {
+                        PS_Edit_Con.Value = Int32.Parse(node.InnerText);
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetIntNodeList)
@@ -93,6 +113,10 @@ namespace DnD_SoloPlayers
                     if (node.InnerText.Equals("") || node.InnerText.Equals(" "))
                     {
                         PS_Edit_Int.Value = 0;
+                    }
+                    else
+                    {
+                        PS_Edit_Int.Value = Int32.Parse(node.InnerText);
                     }
                 }
 
@@ -102,6 +126,10 @@ namespace DnD_SoloPlayers
                     {
                         PS_Edit_Wis.Value = 0;
                     }
+                    else
+                    {
+                        PS_Edit_Wis.Value = Int32.Parse(node.InnerText);
+                    }
                 }
 
                 foreach (XmlNode node in playerSheetChaNodeList)
@@ -110,8 +138,12 @@ namespace DnD_SoloPlayers
                     {
                         PS_Edit_Cha.Value = 0;
                     }
+                    else
+                    {
+                        PS_Edit_Cha.Value = Int32.Parse(node.InnerText);
+                    }
                 }
-        }
+            }
 
         private void PS_Edit_Save_Click(object sender, EventArgs e)
         {

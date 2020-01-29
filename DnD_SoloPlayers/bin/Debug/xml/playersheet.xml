@@ -1,17 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <player>
-  <name>
-  </name>
-  <level>0</level>
-  <ac>0</ac>
-  <class>
-  </class>
-  <race>
-  </race>
-  <str>0</str>
-  <dex>0</dex>
-  <con>0</con>
-  <int>0</int>
-  <wis>0</wis>
-  <cha>0</cha>
+  <name>Quirn Forn Hunj</name>
+  <level>1</level>
+  <ac>10</ac>
+  <class>Ranger</class>
+  <race>Halfling</race>
+  <str>12</str>
+  <dex>13</dex>
+  <con>11</con>
+  <int>6</int>
+  <wis>13</wis>
+  <cha>8</cha>
 </player>

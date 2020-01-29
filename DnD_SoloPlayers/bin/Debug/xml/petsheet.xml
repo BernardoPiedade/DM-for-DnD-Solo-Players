@@ -1,1 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?><pet><name /><creature /><size /><alignment /><type /><speed /><ac /><str /><dex /><con /><int /><wis /><cha /></pet>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pet>
+  <name>fff</name>
+  <creature>blah blah</creature>
+  <size>0</size>
+  <alignment>
+  </alignment>
+  <type>
+  </type>
+  <speed>0</speed>
+  <ac>0</ac>
+  <str>0</str>
+  <dex>0</dex>
+  <con>0</con>
+  <int>0</int>
+  <wis>0</wis>
+  <cha>0</cha>
+</pet>

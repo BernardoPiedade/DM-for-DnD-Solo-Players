@@ -77,9 +77,9 @@ namespace DnD_SoloPlayers
 
                 textBox1.Text = text + "\r\n\r\nQuest sent by: "+user_name;
             }
-            catch(Exception r)
+            catch
             {
-                MessageBox.Show(r.ToString());
+                MessageBox.Show("Couldn't connect with the database, please check your internet connection, or try again later");
             }
         }
 
