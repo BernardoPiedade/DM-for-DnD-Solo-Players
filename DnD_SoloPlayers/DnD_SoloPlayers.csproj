@@ -157,6 +157,12 @@
     <Compile Include="Hooks_CustomSearch.Designer.cs">
       <DependentUpon>Hooks_CustomSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="I_Armorsmith.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I_Armorsmith.Designer.cs">
+      <DependentUpon>I_Armorsmith.cs</DependentUpon>
+    </Compile>
     <Compile Include="I_BlackMarket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Hooks_CustomSearch.resx">
       <DependentUpon>Hooks_CustomSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I_Armorsmith.resx">
+      <DependentUpon>I_Armorsmith.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="I_BlackMarket.resx">
       <DependentUpon>I_BlackMarket.cs</DependentUpon>

@@ -71,6 +71,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Pet_Sheet_Button = new System.Windows.Forms.Button();
             this.P_Spell_List_Button = new System.Windows.Forms.Button();
+            this.I_Armorsmith = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -506,7 +507,18 @@
             this.P_Spell_List_Button.TabIndex = 53;
             this.P_Spell_List_Button.Text = "Spell List";
             this.P_Spell_List_Button.UseVisualStyleBackColor = true;
+            this.P_Spell_List_Button.Visible = false;
             this.P_Spell_List_Button.Click += new System.EventHandler(this.P_Spell_List_Button_Click);
+            // 
+            // I_Armorsmith
+            // 
+            this.I_Armorsmith.Location = new System.Drawing.Point(212, 254);
+            this.I_Armorsmith.Name = "I_Armorsmith";
+            this.I_Armorsmith.Size = new System.Drawing.Size(86, 23);
+            this.I_Armorsmith.TabIndex = 54;
+            this.I_Armorsmith.Text = "Armorsmith";
+            this.I_Armorsmith.UseVisualStyleBackColor = true;
+            this.I_Armorsmith.Click += new System.EventHandler(this.I_Armorsmith_Click);
             // 
             // Form1
             // 
@@ -514,6 +526,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 316);
+            this.Controls.Add(this.I_Armorsmith);
             this.Controls.Add(this.P_Spell_List_Button);
             this.Controls.Add(this.Pet_Sheet_Button);
             this.Controls.Add(this.label1);
@@ -612,6 +625,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Pet_Sheet_Button;
         private System.Windows.Forms.Button P_Spell_List_Button;
+        private System.Windows.Forms.Button I_Armorsmith;
     }
 }
 

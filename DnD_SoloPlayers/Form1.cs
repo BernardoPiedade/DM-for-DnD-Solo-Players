@@ -10,7 +10,7 @@ namespace DnD_SoloPlayers
     public partial class Form1 : Form
     {
         static string version = "";
-        static string actualVersion = "1.4.4";
+        static string actualVersion = "1.4.6";
         static string checkId = "";
 
         public Form1()
@@ -277,6 +277,7 @@ namespace DnD_SoloPlayers
             I_Magical.Visible = true;
             I_BlackMarket.Visible = true;
             I_Weaponsmith.Visible = true;
+            I_Armorsmith.Visible = true;
             Version_Label.Visible = true;
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
@@ -374,6 +375,7 @@ namespace DnD_SoloPlayers
             I_Magical.Visible = true;
             I_BlackMarket.Visible = true;
             I_Weaponsmith.Visible = true;
+            I_Armorsmith.Visible = true;
             Version_Label.Visible = true;
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
@@ -420,6 +422,7 @@ namespace DnD_SoloPlayers
             I_Magical.Visible = false;
             I_BlackMarket.Visible = false;
             I_Weaponsmith.Visible = false;
+            I_Armorsmith.Visible = false;
             Whats_New_Button.Visible = false;
             B_OW.Visible = false;
             Reddit_B.Visible = false;
@@ -432,7 +435,7 @@ namespace DnD_SoloPlayers
             DB_Roll_Time.Visible = true;
             Player_Label.Visible = true;
             PlayerSheet_Button.Visible = true;
-            P_Spell_List_Button.Visible = true;
+            P_Spell_List_Button.Visible = false;
             Pet_Sheet_Button.Visible = true;
             Version_Label.Visible = true;
             Version_Update_MSG.Visible = true;
@@ -479,6 +482,7 @@ namespace DnD_SoloPlayers
             I_Magical.Visible = false;
             I_BlackMarket.Visible = false;
             I_Weaponsmith.Visible = false;
+            I_Armorsmith.Visible = false;
             DiceBag_Label.Visible = false;
             DB_Roll.Visible = false;
             DB_Roll_Time.Visible = false;
@@ -592,5 +596,7 @@ namespace DnD_SoloPlayers
         }
 
         private void P_Spell_List_Button_Click(object sender, EventArgs e) => new Spell_List().Show();
+
+        private void I_Armorsmith_Click(object sender, EventArgs e) => new I_Armorsmith().Show();
     }
 }

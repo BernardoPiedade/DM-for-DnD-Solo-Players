@@ -30,8 +30,9 @@ namespace DnD_SoloPlayers
             string v141 = "Version: 1.4.1 \r\nNew: \r\n\t-> Bug fixes on rolling dice and custom quests;\r\n\t-> Quests will now be reviewed before being available;";
             string v143 = "Version: 1.4.3 \r\nNew: \r\n\t-> Bug fixes on player sheet edit;";
             string v144 = "Version: 1.4.4 \r\nNew: \r\n\t-> Minor bug fixes;\r\n\t-> Updated database";
+            string v146 = "Version: 1.4.6 \r\nNew: \r\n\t-> Fixed windows;\r\n\t-> Fixed bugs on PlayerSheet Edit;\r\n\t-> Added PetSheet and PetSheet Edit;\r\n\t-> Added Armorsmith;\r\n\t-> Fixed bugs from last update;";
 
-            textBox1.Text = v144 + "\r\n\r\n" + v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
+            textBox1.Text = v146 + "\r\n\r\n" + v144 + "\r\n\r\n" + v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
         }
     }
 }
