@@ -348,7 +348,7 @@
             // 
             // DB_Roll_Time
             // 
-            this.DB_Roll_Time.Location = new System.Drawing.Point(592, 153);
+            this.DB_Roll_Time.Location = new System.Drawing.Point(593, 153);
             this.DB_Roll_Time.Name = "DB_Roll_Time";
             this.DB_Roll_Time.Size = new System.Drawing.Size(80, 23);
             this.DB_Roll_Time.TabIndex = 35;

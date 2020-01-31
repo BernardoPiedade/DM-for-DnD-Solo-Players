@@ -23,7 +23,7 @@ namespace DnD_SoloPlayers
         private void SD_Send_Click(object sender, EventArgs e)
         {
             string uID = "";
-            string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Xw662T1NDr; Uid=Xw662T1NDr; Pwd=176ozn5Ym7";
+            string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
             string text = Quest_Text.Text;
             string user_name = User_name.Text;
 
@@ -56,6 +56,10 @@ namespace DnD_SoloPlayers
                 {
                     MessageBox.Show("Couldn't connect with database, please try later.\n\nIf the problem continues, let us know so we can look into it.");
                 }
+            }
+            else if (text.Length < 10)
+            {
+                MessageBox.Show("That side quest is to short, give us more information.");
             }
             else
             {

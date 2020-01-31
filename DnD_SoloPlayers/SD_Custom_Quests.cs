@@ -21,7 +21,7 @@ namespace DnD_SoloPlayers
 
         private void Roll_Side_Quest_Click(object sender, EventArgs e)
         {
-            string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Xw662T1NDr; Uid=Xw662T1NDr; Pwd=176ozn5Ym7";
+            string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
             int max = 0;
             string text = "";
             string user_name = "";
@@ -57,15 +57,15 @@ namespace DnD_SoloPlayers
                     using (MySqlCommand getSD = new MySqlCommand("SELECT * FROM quests WHERE id = " + select + "", conn2))
                     {
                         MySqlDataReader reader = getSD.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            text = (string)reader["quest_text"];
-                            user_name = (string)reader["user_name"];
+                            while (reader.Read())
+                            {
+                                text = (string)reader["quest_text"];
+                                user_name = (string)reader["user_name"];
+                            }
                         }
-                    }
-                    reader.Close();
+                        reader.Close();
                     }
                     conn2.Close();
                 }
@@ -79,7 +79,7 @@ namespace DnD_SoloPlayers
             }
             catch
             {
-                MessageBox.Show("Couldn't connect with the database, please check your internet connection, or try again later");
+                MessageBox.Show("Couldn't connect with the database, please check your internet connection, or try again later. If the problem persists, feel free to contact me");
             }
         }
 
