@@ -17,6 +17,11 @@ namespace DnD_SoloPlayers
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
+            show_m();
+        }
+
+        public void show_m()
+        {
             List<string> answer = new List<string>();
 
             //List content
@@ -92,7 +97,7 @@ namespace DnD_SoloPlayers
             answer.Add("An abandoned, algae-encrusted net. Entangled in it is a fish-bitten revenant on a quest to avenge its own murder, stymied by the fact that its hands and tongue have been eaten off.");
             answer.Add("Gems ground to dust have been mixed into the sand here, glittering in ruby and sapphire hues. It’d be valuable but time consuming to sift it out here, but this risks attracting the attention of wandering monsters. The mixed sand could be packed up to be sifted elsewhere, but the ratio of sand-to-gem-dust could make it prohibitively heavy.");
             answer.Add("A lifelike, gently smiling statue carved from salt, up to its knees in the sand. Those within the statue’s field of view (if its eyes could see) receive a penalty to their ability to resist outside influences on their mind.");
-           
+
             //End list content
 
             //random to select answer from list
@@ -101,6 +106,11 @@ namespace DnD_SoloPlayers
             int select = rnd.Next(0, answer.Count);
 
             textBox1.Text = (answer[select].ToString());
+        }
+
+        private void New_One_Click(object sender, EventArgs e)
+        {
+            show_m();
         }
     }
 }

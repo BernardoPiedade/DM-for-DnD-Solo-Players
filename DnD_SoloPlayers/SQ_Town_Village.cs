@@ -7,16 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.IO;
 
 namespace DnD_SoloPlayers
 {
     public partial class SQ_Town_Village : Form
     {
+        static string quest = "";
+
         public SQ_Town_Village()
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
+            show_m();
+        }
+
+        public void show_m()
+        {
             List<string> answer = new List<string>();
 
             //List content
@@ -97,7 +106,36 @@ namespace DnD_SoloPlayers
 
             int select = rnd.Next(0, answer.Count);
 
+            quest = answer[select].ToString();
             textBox1.Text = (answer[select].ToString());
+        }
+
+        private void New_One_Click(object sender, EventArgs e)
+        {
+            show_m();
+        }
+
+        private void Accept_Quest_Click(object sender, EventArgs e)
+        {
+            string path = "xml\\my_quests.xml";
+            if (!File.Exists(path))
+            {
+                using (XmlWriter questsxml = XmlWriter.Create(path))
+                {
+                    questsxml.WriteStartElement("quests");
+                    questsxml.WriteElementString("quest", quest);
+                    questsxml.WriteEndElement();
+                    questsxml.Flush();
+                }
+            }
+            else
+            {
+                XmlDocument quests = new XmlDocument();
+                quests.LoadXml(path);
+
+                XmlNode q = quests.SelectSingleNode("quests");
+                XmlNode newQuest = quests.CreateNode(XmlNodeType.Element, "quest", null);
+            }
         }
     }
 }

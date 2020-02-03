@@ -17,6 +17,11 @@ namespace DnD_SoloPlayers
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
+            show_m();
+        }
+
+        public void show_m()
+        {
             List<string> answer = new List<string>();
 
             //List content
@@ -149,6 +154,11 @@ namespace DnD_SoloPlayers
             int select = rnd.Next(0, answer.Count);
 
             textBox1.Text = (answer[select].ToString());
+        }
+
+        private void New_One_Click(object sender, EventArgs e)
+        {
+            show_m();
         }
     }
 }

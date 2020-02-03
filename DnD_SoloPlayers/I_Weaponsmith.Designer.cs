@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.New_One = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -45,11 +46,22 @@
             this.textBox1.TabIndex = 4;
             this.textBox1.TabStop = false;
             // 
+            // New_One
+            // 
+            this.New_One.Location = new System.Drawing.Point(363, 444);
+            this.New_One.Name = "New_One";
+            this.New_One.Size = new System.Drawing.Size(75, 23);
+            this.New_One.TabIndex = 12;
+            this.New_One.Text = "New one";
+            this.New_One.UseVisualStyleBackColor = true;
+            this.New_One.Click += new System.EventHandler(this.New_One_Click);
+            // 
             // I_Weaponsmith
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 473);
+            this.Controls.Add(this.New_One);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "I_Weaponsmith";
@@ -62,5 +74,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button New_One;
     }
 }

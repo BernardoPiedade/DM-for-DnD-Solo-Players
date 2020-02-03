@@ -255,6 +255,8 @@ namespace DnD_SoloPlayers
             B_OW.Visible = false;
             Reddit_B.Visible = false;
             Documentation_B.Visible = false;
+            Instagram_B.Visible = false;
+            Twitter_B.Visible = false;
 
             //Visible
             Hooks_Label.Visible = true;
@@ -263,6 +265,7 @@ namespace DnD_SoloPlayers
             Hooks_CustomSearch_B.Visible = true;
             SideQuests_Label.Visible = true;
             SQ_Town_Village.Visible = true;
+            SQ_My_Quests.Visible = true;
             RE_Label.Visible = true;
             RE_Dungeon.Visible = true;
             RE_Desert.Visible = true;
@@ -353,6 +356,8 @@ namespace DnD_SoloPlayers
             B_OW.Visible = false;
             Reddit_B.Visible = false;
             Documentation_B.Visible = false;
+            Instagram_B.Visible = false;
+            Twitter_B.Visible = false;
 
             //Visible
             Hooks_Label.Visible = true;
@@ -361,6 +366,7 @@ namespace DnD_SoloPlayers
             Hooks_CustomSearch_B.Visible = true;
             SideQuests_Label.Visible = true;
             SQ_Town_Village.Visible = true;
+            SQ_My_Quests.Visible = true;
             RE_Label.Visible = true;
             RE_Dungeon.Visible = true;
             RE_Desert.Visible = true;
@@ -408,6 +414,7 @@ namespace DnD_SoloPlayers
             Hooks_CustomSearch_B.Visible = false;
             SideQuests_Label.Visible = false;
             SQ_Town_Village.Visible = false;
+            SQ_My_Quests.Visible = false;
             RE_Label.Visible = false;
             RE_Dungeon.Visible = false;
             RE_Forest.Visible = false;
@@ -428,6 +435,8 @@ namespace DnD_SoloPlayers
             Reddit_B.Visible = false;
             Documentation_B.Visible = false;
             SD_Custom_Quests.Visible = false;
+            Instagram_B.Visible = false;
+            Twitter_B.Visible = false;
 
             //visible
             DiceBag_Label.Visible = true;
@@ -468,6 +477,7 @@ namespace DnD_SoloPlayers
             Hooks_CustomSearch_B.Visible = false;
             SideQuests_Label.Visible = false;
             SQ_Town_Village.Visible = false;
+            SQ_My_Quests.Visible = false;
             RE_Label.Visible = false;
             RE_Dungeon.Visible = false;
             RE_Forest.Visible = false;
@@ -501,6 +511,8 @@ namespace DnD_SoloPlayers
             UserID_Number.Visible = true;
             Reddit_B.Visible = true;
             Documentation_B.Visible = true;
+            Instagram_B.Visible = true;
+            Twitter_B.Visible = true;
             if (version.Equals(actualVersion))
             {
                 Version_Update_MSG.Text = version;
@@ -598,5 +610,21 @@ namespace DnD_SoloPlayers
         private void P_Spell_List_Button_Click(object sender, EventArgs e) => new Spell_List().Show();
 
         private void I_Armorsmith_Click(object sender, EventArgs e) => new I_Armorsmith().Show();
+
+        private void SQ_My_Quests_Click(object sender, EventArgs e) => new SQ_My_Quests().Show();
+
+        private void Twitter_B_Click(object sender, EventArgs e)
+        {
+            string TwiUrl = "https://twitter.com/DndSoloPlayers";
+
+            System.Diagnostics.Process.Start(TwiUrl);
+        }
+
+        private void Instagram_B_Click(object sender, EventArgs e)
+        {
+            string InsUrl = "https://www.instagram.com/dndsoloplayers/";
+
+            System.Diagnostics.Process.Start(InsUrl);
+        }
     }
 }

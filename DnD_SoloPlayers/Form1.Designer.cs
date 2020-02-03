@@ -72,6 +72,9 @@
             this.Pet_Sheet_Button = new System.Windows.Forms.Button();
             this.P_Spell_List_Button = new System.Windows.Forms.Button();
             this.I_Armorsmith = new System.Windows.Forms.Button();
+            this.SQ_My_Quests = new System.Windows.Forms.Button();
+            this.Instagram_B = new System.Windows.Forms.Button();
+            this.Twitter_B = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,7 +201,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(359, 108);
+            this.pictureBox1.Location = new System.Drawing.Point(370, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -471,7 +474,7 @@
             // 
             // SD_Custom_Quests
             // 
-            this.SD_Custom_Quests.Location = new System.Drawing.Point(320, 65);
+            this.SD_Custom_Quests.Location = new System.Drawing.Point(320, 94);
             this.SD_Custom_Quests.Name = "SD_Custom_Quests";
             this.SD_Custom_Quests.Size = new System.Drawing.Size(75, 37);
             this.SD_Custom_Quests.TabIndex = 50;
@@ -520,12 +523,45 @@
             this.I_Armorsmith.UseVisualStyleBackColor = true;
             this.I_Armorsmith.Click += new System.EventHandler(this.I_Armorsmith_Click);
             // 
+            // SQ_My_Quests
+            // 
+            this.SQ_My_Quests.Location = new System.Drawing.Point(320, 65);
+            this.SQ_My_Quests.Name = "SQ_My_Quests";
+            this.SQ_My_Quests.Size = new System.Drawing.Size(75, 23);
+            this.SQ_My_Quests.TabIndex = 55;
+            this.SQ_My_Quests.Text = "My Quests";
+            this.SQ_My_Quests.UseVisualStyleBackColor = true;
+            this.SQ_My_Quests.Click += new System.EventHandler(this.SQ_My_Quests_Click);
+            // 
+            // Instagram_B
+            // 
+            this.Instagram_B.Location = new System.Drawing.Point(240, 169);
+            this.Instagram_B.Name = "Instagram_B";
+            this.Instagram_B.Size = new System.Drawing.Size(90, 23);
+            this.Instagram_B.TabIndex = 56;
+            this.Instagram_B.Text = "Instagram";
+            this.Instagram_B.UseVisualStyleBackColor = true;
+            this.Instagram_B.Click += new System.EventHandler(this.Instagram_B_Click);
+            // 
+            // Twitter_B
+            // 
+            this.Twitter_B.Location = new System.Drawing.Point(529, 169);
+            this.Twitter_B.Name = "Twitter_B";
+            this.Twitter_B.Size = new System.Drawing.Size(91, 23);
+            this.Twitter_B.TabIndex = 57;
+            this.Twitter_B.Text = "Twitter";
+            this.Twitter_B.UseVisualStyleBackColor = true;
+            this.Twitter_B.Click += new System.EventHandler(this.Twitter_B_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 316);
+            this.Controls.Add(this.Twitter_B);
+            this.Controls.Add(this.Instagram_B);
+            this.Controls.Add(this.SQ_My_Quests);
             this.Controls.Add(this.I_Armorsmith);
             this.Controls.Add(this.P_Spell_List_Button);
             this.Controls.Add(this.Pet_Sheet_Button);
@@ -626,6 +662,9 @@
         private System.Windows.Forms.Button Pet_Sheet_Button;
         private System.Windows.Forms.Button P_Spell_List_Button;
         private System.Windows.Forms.Button I_Armorsmith;
+        private System.Windows.Forms.Button SQ_My_Quests;
+        private System.Windows.Forms.Button Instagram_B;
+        private System.Windows.Forms.Button Twitter_B;
     }
 }
 
