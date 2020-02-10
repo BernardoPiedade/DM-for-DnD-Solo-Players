@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <player>
-  <name>Quirn Forn Hunj</name>
+  <name>Lino Vermon</name>
   <level>1</level>
   <ac>10</ac>
-  <class>Ranger</class>
-  <race>Halfling</race>
-  <str>12</str>
-  <dex>13</dex>
-  <con>11</con>
-  <int>6</int>
-  <wis>13</wis>
-  <cha>8</cha>
+  <class>Monk</class>
+  <race>Half-Elf</race>
+  <str>10</str>
+  <dex>15</dex>
+  <con>6</con>
+  <int>16</int>
+  <wis>14</wis>
+  <cha>6</cha>
 </player>

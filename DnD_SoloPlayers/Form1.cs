@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using System.Xml;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
+using System.Globalization;
+using Microsoft.Speech.Recognition;
 
 namespace DnD_SoloPlayers
 {
@@ -34,8 +37,6 @@ namespace DnD_SoloPlayers
                     {
                         checkId = node.InnerText;
                     }
-
-                    UserID_Number.Text = checkId;
 
                     if (checkId.Equals("") || checkId.Equals(" "))
                     {
@@ -286,6 +287,10 @@ namespace DnD_SoloPlayers
             UserId_Label.Visible = true;
             UserID_Number.Visible = true;
             SD_Custom_Quests.Visible = true;
+            Infinite_Dungeon_Crawler_Label.Visible = true;
+            Enter_Dungeon_Crawler_Button.Visible = true;
+
+            UserID_Number.Text = checkId;
         }
 
         private void AH_Town_Click(object sender, EventArgs e) => new AH().Show();
@@ -387,6 +392,8 @@ namespace DnD_SoloPlayers
             UserId_Label.Visible = true;
             UserID_Number.Visible = true;
             SD_Custom_Quests.Visible = true;
+            Infinite_Dungeon_Crawler_Label.Visible = true;
+            Enter_Dungeon_Crawler_Button.Visible = true;
             if (version.Equals(actualVersion))
             {
                 Version_Update_MSG.Text = version;
@@ -437,6 +444,8 @@ namespace DnD_SoloPlayers
             SD_Custom_Quests.Visible = false;
             Instagram_B.Visible = false;
             Twitter_B.Visible = false;
+            Infinite_Dungeon_Crawler_Label.Visible = false;
+            Enter_Dungeon_Crawler_Button.Visible = false;
 
             //visible
             DiceBag_Label.Visible = true;
@@ -501,6 +510,8 @@ namespace DnD_SoloPlayers
             P_Spell_List_Button.Visible = false;
             Pet_Sheet_Button.Visible = false;
             SD_Custom_Quests.Visible = false;
+            Infinite_Dungeon_Crawler_Label.Visible = false;
+            Enter_Dungeon_Crawler_Button.Visible = false;
 
             //visible
             Version_Label.Visible = true;
@@ -626,5 +637,7 @@ namespace DnD_SoloPlayers
 
             System.Diagnostics.Process.Start(InsUrl);
         }
+
+        private void Enter_Dungeon_Crawler_Button_Click(object sender, EventArgs e) => new Dungeon_Crawler().Show();
     }
 }

@@ -130,11 +130,22 @@ namespace DnD_SoloPlayers
             }
             else
             {
-                XmlDocument quests = new XmlDocument();
-                quests.LoadXml(path);
 
-                XmlNode q = quests.SelectSingleNode("quests");
-                XmlNode newQuest = quests.CreateNode(XmlNodeType.Element, "quest", null);
+                //create new instance of XmlDocument
+                XmlDocument doc = new XmlDocument();
+
+                //load from file
+                doc.Load(path);
+
+                //create node and add value
+                XmlNode node = doc.CreateNode(XmlNodeType.Element, "quest", null);
+                node.InnerText = quest;
+
+                //add to elements collection
+                doc.DocumentElement.AppendChild(node);
+
+                //save back
+                doc.Save(path);
             }
         }
     }

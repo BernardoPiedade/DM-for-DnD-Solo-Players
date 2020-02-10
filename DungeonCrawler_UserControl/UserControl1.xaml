@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="DungeonCrawler_UserControl.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DungeonCrawler_UserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="1000">
+    <Grid Background="White">
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="1000" KeyDown="canvas_KeyDown" Focusable="True">
+            <Canvas.Background>
+                <ImageBrush ImageSource="d9nay7u-51e0195c-0077-46b9-8753-d7222888ab77.png"/>
+            </Canvas.Background>
+        </Canvas>
+        <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="61" Margin="131,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="750" FontFamily="Arial Rounded MT Bold" FontSize="15" IsEnabled="False"/>
+
+    </Grid>
+</UserControl>
+    
+   
+    
+    

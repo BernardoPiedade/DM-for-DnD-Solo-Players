@@ -75,6 +75,8 @@
             this.SQ_My_Quests = new System.Windows.Forms.Button();
             this.Instagram_B = new System.Windows.Forms.Button();
             this.Twitter_B = new System.Windows.Forms.Button();
+            this.Enter_Dungeon_Crawler_Button = new System.Windows.Forms.Button();
+            this.Infinite_Dungeon_Crawler_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +114,7 @@
             // 
             this.DiceYesNo_Label.AutoSize = true;
             this.DiceYesNo_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiceYesNo_Label.Location = new System.Drawing.Point(592, 154);
+            this.DiceYesNo_Label.Location = new System.Drawing.Point(625, 124);
             this.DiceYesNo_Label.Name = "DiceYesNo_Label";
             this.DiceYesNo_Label.Size = new System.Drawing.Size(166, 13);
             this.DiceYesNo_Label.TabIndex = 5;
@@ -179,7 +181,7 @@
             // 
             // DiceRoll
             // 
-            this.DiceRoll.Location = new System.Drawing.Point(639, 170);
+            this.DiceRoll.Location = new System.Drawing.Point(672, 140);
             this.DiceRoll.Name = "DiceRoll";
             this.DiceRoll.Size = new System.Drawing.Size(75, 23);
             this.DiceRoll.TabIndex = 15;
@@ -553,12 +555,34 @@
             this.Twitter_B.UseVisualStyleBackColor = true;
             this.Twitter_B.Click += new System.EventHandler(this.Twitter_B_Click);
             // 
+            // Enter_Dungeon_Crawler_Button
+            // 
+            this.Enter_Dungeon_Crawler_Button.Location = new System.Drawing.Point(664, 198);
+            this.Enter_Dungeon_Crawler_Button.Name = "Enter_Dungeon_Crawler_Button";
+            this.Enter_Dungeon_Crawler_Button.Size = new System.Drawing.Size(75, 23);
+            this.Enter_Dungeon_Crawler_Button.TabIndex = 58;
+            this.Enter_Dungeon_Crawler_Button.Text = "Enter";
+            this.Enter_Dungeon_Crawler_Button.UseVisualStyleBackColor = true;
+            this.Enter_Dungeon_Crawler_Button.Click += new System.EventHandler(this.Enter_Dungeon_Crawler_Button_Click);
+            // 
+            // Infinite_Dungeon_Crawler_Label
+            // 
+            this.Infinite_Dungeon_Crawler_Label.AutoSize = true;
+            this.Infinite_Dungeon_Crawler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Infinite_Dungeon_Crawler_Label.Location = new System.Drawing.Point(627, 182);
+            this.Infinite_Dungeon_Crawler_Label.Name = "Infinite_Dungeon_Crawler_Label";
+            this.Infinite_Dungeon_Crawler_Label.Size = new System.Drawing.Size(147, 13);
+            this.Infinite_Dungeon_Crawler_Label.TabIndex = 59;
+            this.Infinite_Dungeon_Crawler_Label.Text = "Infinite Dungeon Crawler";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 316);
+            this.Controls.Add(this.Infinite_Dungeon_Crawler_Label);
+            this.Controls.Add(this.Enter_Dungeon_Crawler_Button);
             this.Controls.Add(this.Twitter_B);
             this.Controls.Add(this.Instagram_B);
             this.Controls.Add(this.SQ_My_Quests);
@@ -665,6 +689,8 @@
         private System.Windows.Forms.Button SQ_My_Quests;
         private System.Windows.Forms.Button Instagram_B;
         private System.Windows.Forms.Button Twitter_B;
+        private System.Windows.Forms.Button Enter_Dungeon_Crawler_Button;
+        private System.Windows.Forms.Label Infinite_Dungeon_Crawler_Label;
     }
 }
 
