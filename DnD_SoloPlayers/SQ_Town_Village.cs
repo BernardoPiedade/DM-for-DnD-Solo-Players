@@ -98,6 +98,24 @@ namespace DnD_SoloPlayers
             answer.Add("There has been a string of robberies and pick pocketing happening at the bazaar.\r\nThe watch are spread thin so they are taking any help they can to stop these crimes.");
             answer.Add("Collect the four elemental weapons so the dwarfs can use them to forge the ultimate god Slayer.");
             answer.Add("The home Maker's guild needs as much help as possible making houses for the huge amount of refugees coming in from the war.");
+            answer.Add("When the mad king died with no heirs, he had a wizard seal off the treasury of the kingdom.\r\nOutside of the doors of the treasury is a fon filled with holy water. It will only open if someone related to the king willingly drops his or her blood into the water.");
+            answer.Add("The weather has become unstable and it seems as if the season changes every week causing chaos.\r\nFind the weath crystals and use them to align the planet back into it's proper orbit.");
+            answer.Add("The is a mole in a strong political standing that is leaking information to the rebellion. We need an outside party to find out who it is.");
+            answer.Add("A member of the city watch has met up with you in secret. She has been a witness to crimes of members of the city watch.\r\nShe needs an escort to the citadel. She fears for her life and needs to report directly with higher-ups because she doesn't know how deep the corruption goes.");
+            answer.Add("Hunters keep going missing. They are either getting lost in the vast ever changing forest or they are being attacked by large predators. In the past the hunters would be guided through hunting ground by Aaracokra. They can no longer help due to their war with the opposing Minotaur tribe.");
+            answer.Add("A strange calamity has made it so people don't heal fully from their wounds over night!\r\nFind the source of this curse and get rid of it.");
+            answer.Add("A beholder has reached out to you. He is willing to pay a large sum of money to anyone who will kill a rival beholder.");
+            answer.Add("The potion of cure desease that you took was intended to cure the BBEG's son. \r\nNow you have a price on your head and you're being accused o killing the \"prince\".");
+            answer.Add("The kingdom has an elaborate system of intelligence where they use familiars and birds to communicate across vast lands. Someone or something has been targething these creatures, stealing information, and crippling the land.\r\nHelp find the source of these issues.");
+            answer.Add("The local tavern has a ghost who is their best server. The ghost has gone missing, and the tavern owner is looking for answers.\r\nWe thinks the rival tavern did something to him.");
+            answer.Add("The group has found a puzzle made by the great wizard Rubim. It is said that whoever can solve this cube gains a permanent boost to their intelligence. \r\n\r\n(You can try to solve the cube two times a day, do an INT check, if it is 18+ you're able to solve the puzzle, and gain a permanent +2 to your INT)");
+            answer.Add("The mayor has asked you to travel to the nearby towns handing out flyers for the upcoming festival. The idea is to promote a positive community and clear the air of the negative history that is held onto by the nearby people.");
+            answer.Add("A trend of bloodletting on the local village is causing people to die and spread disease. The people are being convinced by the church leader that they are baing punished for their sins and must continue bloodletting more agressively than before");
+            answer.Add("You got a letter asking you to investigate a crime in a nearby friendly grung village. While investigating the crime, you are accused of comminting the crime itself and are taken to grung court.");
+            answer.Add("After a strange flash throughout the entire realm, all orts of events in the past have changed. The villan is back, the shopkeeper is someone else, the sun is red. The only one who remembers how it used to be, is you.");
+            answer.Add("You found a dire wolf pup, but where is its the mother?\r\n\r\n(The mother is using it as a bait)");
+            answer.Add("A frigid cold is coming from the north, making it winter in the middle of the summer. Even the tropical areas of the world have been iced over. Farmers are worried about their yeild.");
+            answer.Add("Students fromthe public wizarding school have been attacked randomly by masked spell casters. It is believed they are being attacked by students drom the rival private wizarding school as some form of gambit.");
 
             //End list content
 

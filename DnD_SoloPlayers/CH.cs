@@ -145,6 +145,12 @@ namespace DnD_SoloPlayers
             answer.Add("Thousands of dead sea creatures have washed up on shore, victims of a deadly algae bloom. The next day a “ransom note” is found in the papers of the local ruler. The demand is for 1,000,000 gold pieces or the sea life will continue to die. ");
             answer.Add("An Awakened Octopus has found a way to cast “Comprehend Languages” and has approached several fishermen, begging for help with a Sea Hag that has been enslaving its kind. ");
             answer.Add("A dryad has suddenly found herself (and her tree) a half-mile off the shoreline, on a sandspit. She is desperate for help and will promise great rewards to anyone who can get her (and her tree) home. ");
+            answer.Add("You are the prime suspect of a murder.\r\nYou have one night to prove your innocence before the trial.");
+            answer.Add("The larpest coal factory in the kinddom has stopped the production because something lurking in the lower levels of the factory scares the workers.\r\nThe factory will reward anyone who manages to resolve the issue, with a black magical blade.");
+            answer.Add("Finding a cave seems like the only option to survive the snowstorm.\r\nWhen you finally reach one, someone is waiting for you at the entrance of the cave.\r\nShe is not friendly...");
+            answer.Add("You find refuge in a cave to survive the snowstorm.\r\nWhile waiting for the weather to change, you hear sounds of weird movement, coming from the back of the cave.");
+            answer.Add("While in a cave, when you sit on a stone, a hidden door opens.\r\nThe path leads to a huge cave complex.");
+            answer.Add("A wizard hires you to test the defenses of his new tower.\r\nThe money is almost too good, if you survive of course.");
 
             //End list content
 

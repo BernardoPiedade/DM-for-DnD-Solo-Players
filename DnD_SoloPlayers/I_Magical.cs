@@ -82,6 +82,7 @@ namespace DnD_SoloPlayers
             answer.Add("A wooden shield encased in iron bands. Speaking the shield's command word causes it to magically transform into a shield guardian for 1 minute. The shield can be used in this way once per day.");
             answer.Add("An animated wooden horse that can be broken down and reassembled into a hand-drawn cart. While in horse form, up to 5 packs and 1 small chest can be stored in the construct's chest cavity.");
             answer.Add("Ghost costume - A simple white silk sheet with eye holes cut into it, which is somehow able to fool people into believing they've encountered a ghostly apparition.\r\nAn adventurer that equips the ghost costume is granted 3 charges of the ability 'BOO!', which resets each dawn. As an action, the so-called ghost makes a performance check contested against a single target wisdom check.\r\nIf the result is equal to or greater than the target's roll, they take 1d6 phychic damage and become frightened.");
+            answer.Add("Eldritch Blaster:\r\n\r\n- One handed ranged weapon\r\n\r\n- 120ft range\r\n\r\n- Deals 1d10 force damage\r\n\r\n- Whispers weird stuff to ou while you sleep");
 
             //End list content
 

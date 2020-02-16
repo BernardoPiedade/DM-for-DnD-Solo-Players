@@ -145,6 +145,12 @@ namespace DnD_SoloPlayers
             answer.Add("Something is killing the local sea-life. Hundreds of dead fish and other sea creatures are washed up on the beach. ");
             answer.Add("A sea cave is discovered and, if explored, leads to an isolated branch of the Underdark that is home to creatures unlike the usual ones normally found.");
             answer.Add("A sea festival is threatened by the appearance of a horde of Drowned Zombies, rising from the ocean waves.");
+            answer.Add("The nearby villagers have mistaken the new wizard in town for a necromancer and have formed a mob.");
+            answer.Add("A warrior claims he can stop the creature that has been killing traders, because it is her father.");
+            answer.Add("The same house is present in every town you visit.\r\nIt seems to be following you.\r\nThe people from the towns, claim that it has always been there.");
+            answer.Add("A band of thieves have plagued the king's road for months.\r\nIt's secretly led by the king daughter.\r\nShe claims that it's only to defend the ousiders.");
+            answer.Add("A well-known city looms in the distance.\r\nThe closer you get the more it fades until it's gone completly.\r\nPeople call it \"The unseen palace\", and say it is guarded by old gods who were left to die by their owns.");
+            answer.Add("You find a corpse sitting behind the counter.\r\nIn his hand is a card with one word: \"Greed\".");
 
 
             //End list content
