@@ -20,64 +20,69 @@ namespace DungeonCrawler_UserControl
     /// </summary>
     public partial class UserControl1 : UserControl
     {
-        static List<string> YouFound = new List<string>();
+        static List<string> DamageType = new List<string>();
         static Random rnd = new Random();
         static int x = rnd.Next(0, 950);
         static int y = rnd.Next(0, 500);
-        static List<string> ImageNum = new List<string>();
+
+        //get last player position
+        static int last_Player_Position_X = 0;
+        static int last_Player_Position_Y = 0;
 
         public UserControl1()
         {
             InitializeComponent();
 
-            YouFound.Add("This room looks empty... Oh, wait.. nope, you're going to have a fight... Geezz two Giant Badger.");
-            YouFound.Add("You look around, yep, the room is empty.");
-            YouFound.Add("Finally something good, you just found a chest!\r\nAh! It's a Mimic, bad luck.");
-            YouFound.Add("As soon as you enter, the room fills with a dim light, you're safe here.\r\nIt looks like a good place to take a short rest.");
-            YouFound.Add("This room is completely empty. Not that I wanted, but I had to make some empty rooms to \"make it fair\"");
+            setPlayerPosition();
+        }
 
-            ImageNum.Add("img\\tile.png");
-            ImageNum.Add("img\\tile2.png");
-            ImageNum.Add("img\\tile3.png");
-            ImageNum.Add("img\\tile4.png");
-            ImageNum.Add("img\\tile5.png");
-
+        private void setPlayerPosition()
+        {
             Rectangle rect;
             rect = new Rectangle();
-            rect.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri(@"img\\tile2.png", UriKind.Relative)) };
+            ImageBrush imgBrush = new ImageBrush();
+            imgBrush.ImageSource = new BitmapImage(new Uri(@"img/player.png", UriKind.Relative));
+            rect.Fill = imgBrush;
             rect.Width = 50;
             rect.Height = 50;
             Canvas.SetLeft(rect, x);
             Canvas.SetTop(rect, y);
             canvas.Children.Add(rect);
 
-            textbox.Text = "You ready to start?\r\nUse your arrow keys. Where are you going?\r\nUp? Down? Right? Left?";
+            last_Player_Position_X = x;
+            last_Player_Position_Y = y;
         }
 
         private void canvas_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Up)
             {
-
-
                 if (y-50 >= 0)
                 {
                     y -= 50;
 
+                    Rectangle r;
+                    r = new Rectangle();
+                    r.Fill = Brushes.White;
+                    r.Width = 50;
+                    r.Height = 50;
+                    Canvas.SetLeft(r, last_Player_Position_X);
+                    Canvas.SetTop(r, last_Player_Position_Y);
+                    canvas.Children.Add(r);
+
                     Rectangle rect;
                     rect = new Rectangle();
-                    int randImg = rnd.Next(0, ImageNum.Count());
-                    string imgUri = ImageNum[randImg].ToString();
-                    rect.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgUri, UriKind.Relative)) };
+                    ImageBrush imgBrush = new ImageBrush();
+                    imgBrush.ImageSource = new BitmapImage(new Uri(@"img/player.png", UriKind.Relative));
+                    rect.Fill = imgBrush;
                     rect.Width = 50;
                     rect.Height = 50;
                     Canvas.SetLeft(rect, x);
                     Canvas.SetTop(rect, y);
                     canvas.Children.Add(rect);
 
-                    int textSelected = rnd.Next(0, YouFound.Count());
-
-                    textbox.Text = YouFound[textSelected].ToString();
+                    last_Player_Position_X = x;
+                    last_Player_Position_Y = y;
                 }
             }
             else if(e.Key == Key.Down)
@@ -87,20 +92,28 @@ namespace DungeonCrawler_UserControl
                 {
                     y += 50;
 
+                    Rectangle r;
+                    r = new Rectangle();
+                    r.Fill = Brushes.White;
+                    r.Width = 50;
+                    r.Height = 50;
+                    Canvas.SetLeft(r, last_Player_Position_X);
+                    Canvas.SetTop(r, last_Player_Position_Y);
+                    canvas.Children.Add(r);
+
                     Rectangle rect;
                     rect = new Rectangle();
-                    int randImg = rnd.Next(0, ImageNum.Count());
-                    string imgUri = ImageNum[randImg].ToString();
-                    rect.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgUri, UriKind.Relative)) };
+                    ImageBrush imgBrush = new ImageBrush();
+                    imgBrush.ImageSource = new BitmapImage(new Uri(@"img/player.png", UriKind.Relative));
+                    rect.Fill = imgBrush;
                     rect.Width = 50;
                     rect.Height = 50;
                     Canvas.SetLeft(rect, x);
                     Canvas.SetTop(rect, y);
                     canvas.Children.Add(rect);
 
-                    int textSelected = rnd.Next(0, YouFound.Count());
-
-                    textbox.Text = YouFound[textSelected].ToString();
+                    last_Player_Position_X = x;
+                    last_Player_Position_Y = y;
                 }
             }
             else if(e.Key == Key.Left)
@@ -110,20 +123,28 @@ namespace DungeonCrawler_UserControl
                 {
                     x -= 50;
 
+                    Rectangle r;
+                    r = new Rectangle();
+                    r.Fill = Brushes.White;
+                    r.Width = 50;
+                    r.Height = 50;
+                    Canvas.SetLeft(r, last_Player_Position_X);
+                    Canvas.SetTop(r, last_Player_Position_Y);
+                    canvas.Children.Add(r);
+
                     Rectangle rect;
                     rect = new Rectangle();
-                    int randImg = rnd.Next(0, ImageNum.Count());
-                    string imgUri = ImageNum[randImg].ToString();
-                    rect.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgUri, UriKind.Relative)) };
+                    ImageBrush imgBrush = new ImageBrush();
+                    imgBrush.ImageSource = new BitmapImage(new Uri(@"img/player.png", UriKind.Relative));
+                    rect.Fill = imgBrush;
                     rect.Width = 50;
                     rect.Height = 50;
                     Canvas.SetLeft(rect, x);
                     Canvas.SetTop(rect, y);
                     canvas.Children.Add(rect);
 
-                    int textSelected = rnd.Next(0, YouFound.Count());
-
-                    textbox.Text = YouFound[textSelected].ToString();
+                    last_Player_Position_X = x;
+                    last_Player_Position_Y = y;
                 }
             }
             else if(e.Key == Key.Right)
@@ -133,22 +154,35 @@ namespace DungeonCrawler_UserControl
                 {
                     x += 50;
 
+                    Rectangle r;
+                    r = new Rectangle();
+                    r.Fill = Brushes.White;
+                    r.Width = 50;
+                    r.Height = 50;
+                    Canvas.SetLeft(r, last_Player_Position_X);
+                    Canvas.SetTop(r, last_Player_Position_Y);
+                    canvas.Children.Add(r);
+
                     Rectangle rect;
                     rect = new Rectangle();
-                    int randImg = rnd.Next(0, ImageNum.Count());
-                    string imgUri = ImageNum[randImg].ToString();
-                    rect.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgUri, UriKind.Relative)) };
+                    ImageBrush imgBrush = new ImageBrush();
+                    imgBrush.ImageSource = new BitmapImage(new Uri(@"img/player.png", UriKind.Relative));
+                    rect.Fill = imgBrush;
                     rect.Width = 50;
                     rect.Height = 50;
                     Canvas.SetLeft(rect, x);
                     Canvas.SetTop(rect, y);
                     canvas.Children.Add(rect);
 
-                    int textSelected = rnd.Next(0, YouFound.Count());
-
-                    textbox.Text = YouFound[textSelected].ToString();
+                    last_Player_Position_X = x;
+                    last_Player_Position_Y = y;
                 }
             }
+        }
+
+        private void End_turn_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

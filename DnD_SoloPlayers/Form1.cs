@@ -6,7 +6,6 @@ using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
 using System.Globalization;
-using Microsoft.Speech.Recognition;
 
 namespace DnD_SoloPlayers
 {

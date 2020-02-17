@@ -7,13 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1000">
     <Grid Background="White">
-        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="1000" KeyDown="canvas_KeyDown" Focusable="True">
-            <Canvas.Background>
-                <ImageBrush ImageSource="d9nay7u-51e0195c-0077-46b9-8753-d7222888ab77.png"/>
-            </Canvas.Background>
-        </Canvas>
-        <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="61" Margin="131,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="750" FontFamily="Arial Rounded MT Bold" FontSize="15" IsEnabled="False"/>
-
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="1000" KeyDown="canvas_KeyDown" Focusable="True"/>
+        <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="71" Margin="10,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="750" FontFamily="Arial Rounded MT Bold" FontSize="15" IsEnabled="False"/>
+        <Button x:Name="End_turn_Button" HorizontalAlignment="Left" Height="25" Margin="862,520,0,24" Width="100" Content="End Turn" Click="End_turn_Button_Click" Focusable="False"></Button>
+        <Button x:Name="Add_Monster" HorizontalAlignment="Left" Height="25" Margin="862,590,0,24" Width="100" Content="Add Monster" Focusable="False"></Button>
     </Grid>
 </UserControl>
     
