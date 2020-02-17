@@ -236,11 +236,14 @@ namespace DungeonCrawler_UserControl
         {
             Random rd = new Random();
 
-            int Nx = rd.Next(0, 950);
-            int Ny = rd.Next(0, 500);
+            int X = rd.Next(0, 950);
+            int Y = rd.Next(0, 500);
 
-            for (int i = 0; i < Monster_Positions.Count(); i++)
+            int pX = 0;
+            int pY = 0;
+            for (int i = 0; i < Monster_Positions.Count; i++)
             {
+
                 Rectangle r;
                 r = new Rectangle();
                 r.Fill = Brushes.White;
@@ -249,6 +252,17 @@ namespace DungeonCrawler_UserControl
                 Canvas.SetLeft(r, Monster_Positions[i].Last_Monster_Position_X);
                 Canvas.SetTop(r, Monster_Positions[i].Last_Monster_Position_Y);
                 canvas.Children.Add(r);
+                
+
+                if(((Monster_Positions[i].Last_Monster_Position_X + X) >= 0) && ((Monster_Positions[i].Last_Monster_Position_X + X) <= 950))
+                {
+                    pX = Monster_Positions[i].Last_Monster_Position_X + X;
+                }
+
+                if(((Monster_Positions[i].Last_Monster_Position_Y + Y) >= 0) && ((Monster_Positions[i].Last_Monster_Position_Y + Y) <= 500))
+                {
+                    pY = Monster_Positions[i].Last_Monster_Position_Y + Y;
+                }
 
                 Rectangle rect;
                 rect = new Rectangle();
@@ -257,9 +271,12 @@ namespace DungeonCrawler_UserControl
                 rect.Fill = imgBrush;
                 rect.Width = 50;
                 rect.Height = 50;
-                Canvas.SetLeft(rect,(Monster_Positions[i].Last_Monster_Position_X + Nx));
-                Canvas.SetTop(rect, (Monster_Positions[i].Last_Monster_Position_Y + Ny));
+                Canvas.SetLeft(rect, pX);
+                Canvas.SetTop(rect, pY);
                 canvas.Children.Add(rect);
+
+                Monster_Positions[i].Last_Monster_Position_X = pX;
+                Monster_Positions[i].Last_Monster_Position_Y = pY;
             }
         }
 
