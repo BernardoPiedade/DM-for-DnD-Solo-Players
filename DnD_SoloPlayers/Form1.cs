@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Windows.Forms.Integration;
 using System.Xml;
 using MySql.Data.MySqlClient;
 using System.Drawing;
-using System.IO;
-using System.Globalization;
 
 namespace DnD_SoloPlayers
 {
