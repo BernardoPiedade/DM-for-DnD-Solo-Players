@@ -59,6 +59,8 @@ namespace DungeonCrawler_UserControl
     {
         //static List<string> DamageType = new List<string>();
         static List<Monster_Token> Monster_Positions = new List<Monster_Token>();
+        //List_Last_Positions -> max to 5 records
+        static List<Monster_Token> List_Last_Positions = new List<Monster_Token>();
         static Random rnd = new Random();
         static int x = rnd.Next(0, 950);
         static int y = rnd.Next(0, 500);
@@ -236,13 +238,16 @@ namespace DungeonCrawler_UserControl
         {
             Random rd = new Random();
 
-            int X = rd.Next(0, 950);
-            int Y = rd.Next(0, 500);
-
             int pX = 0;
             int pY = 0;
+
+            int clicks = 0;
+
             for (int i = 0; i < Monster_Positions.Count; i++)
             {
+                int X = rd.Next(0, 150);
+                int Y = rd.Next(0, 150);
+                int Plus_Minus = rd.Next(0, 2);
 
                 Rectangle r;
                 r = new Rectangle();
@@ -252,16 +257,127 @@ namespace DungeonCrawler_UserControl
                 Canvas.SetLeft(r, Monster_Positions[i].Last_Monster_Position_X);
                 Canvas.SetTop(r, Monster_Positions[i].Last_Monster_Position_Y);
                 canvas.Children.Add(r);
-                
 
-                if(((Monster_Positions[i].Last_Monster_Position_X + X) >= 0) && ((Monster_Positions[i].Last_Monster_Position_X + X) <= 950))
+                // 0 = Plus | 1 = Minus
+                if(Plus_Minus == 0)
                 {
-                    pX = Monster_Positions[i].Last_Monster_Position_X + X;
+                    if (((Monster_Positions[i].Last_Monster_Position_X + X) >= 0) && ((Monster_Positions[i].Last_Monster_Position_X + X) <= 950))
+                    {
+                        for(int j = 0; j < List_Last_Positions.Count(); j++)
+                        {
+                            if ((Monster_Positions[i].Last_Monster_Position_X + X) != List_Last_Positions[j].Last_Monster_Position_X)
+                            {
+                                pX = Monster_Positions[i].Last_Monster_Position_X + X;
+                            }
+                            else
+                            {
+                                pX = Monster_Positions[i].Last_Monster_Position_X;
+                            }
+                        }
+                    }
+
+                    if (((Monster_Positions[i].Last_Monster_Position_Y + Y) >= 0) && ((Monster_Positions[i].Last_Monster_Position_Y + Y) <= 500))
+                    {
+                        for(int j = 0; j < List_Last_Positions.Count(); j++)
+                        {
+                            if((Monster_Positions[i].Last_Monster_Position_Y + Y) != List_Last_Positions[j].Last_Monster_Position_Y)
+                            {
+                                pY = Monster_Positions[i].Last_Monster_Position_Y + Y;
+                            }
+                            else
+                            {
+                                pY = Monster_Positions[i].Last_Monster_Position_Y;
+                            }
+                        }
+                    }
                 }
-
-                if(((Monster_Positions[i].Last_Monster_Position_Y + Y) >= 0) && ((Monster_Positions[i].Last_Monster_Position_Y + Y) <= 500))
+                else if (Plus_Minus == 1)
                 {
-                    pY = Monster_Positions[i].Last_Monster_Position_Y + Y;
+                    if (((Monster_Positions[i].Last_Monster_Position_X - X) >= 0) && ((Monster_Positions[i].Last_Monster_Position_X - X) <= 950))
+                    {
+                        for(int j = 0; j < List_Last_Positions.Count(); j++)
+                        {
+                            if((Monster_Positions[i].Last_Monster_Position_X - X) != List_Last_Positions[j].Last_Monster_Position_X)
+                            {
+                                pX = Monster_Positions[i].Last_Monster_Position_X - X;
+                            }
+                            else
+                            {
+                                pX = Monster_Positions[i].Last_Monster_Position_X;
+                            }
+                        }
+                    }
+
+                    if (((Monster_Positions[i].Last_Monster_Position_Y - Y) >= 0) && ((Monster_Positions[i].Last_Monster_Position_Y - Y) <= 500))
+                    {
+                        for(int j = 0; j < List_Last_Positions.Count(); j++)
+                        {
+                            if((Monster_Positions[i].Last_Monster_Position_Y - Y) != List_Last_Positions[i].Last_Monster_Position_Y)
+                            {
+                                pY = Monster_Positions[i].Last_Monster_Position_Y - Y;
+                            }
+                            else
+                            {
+                                pY = Monster_Positions[i].Last_Monster_Position_Y;
+                            }
+                        }
+                    }
+                }
+                
+                if(i > 0)
+                {
+                    if (Plus_Minus == 0)
+                    {
+                        if (pX == (Monster_Positions[i - 1].Last_Monster_Position_X))
+                        {
+                            if((pX += 100) <= 950)
+                            {
+                                pX += 100;
+                            }
+                            else
+                            {
+                                pX -= 100;
+                            }
+                        }
+
+                        if (pY == (Monster_Positions[i - 1].Last_Monster_Position_Y))
+                        {
+                            if((pY += 100) <= 500)
+                            {
+                                pY += 100;
+                            }
+                            else
+                            {
+                                pY -= 100;
+                            }
+                        }
+                    }
+                    else if (Plus_Minus == 1)
+                    {
+                        if (pX == (Monster_Positions[i - 1].Last_Monster_Position_X))
+                        {
+                            if((pX -= 100) >= 0)
+                            {
+                                pX -= 100;
+                            }
+                            else
+                            {
+                                pX += 100;
+                            }
+                        }
+
+                        if (pY == (Monster_Positions[i - 1].Last_Monster_Position_Y))
+                        {
+                            if((pY -= 100) >= 0)
+                            {
+                                pY -= 100;
+                            }
+                            else
+                            {
+                                pY += 100;
+                            }
+                        }
+                    }
                 }
 
                 Rectangle rect;
@@ -274,9 +390,17 @@ namespace DungeonCrawler_UserControl
                 Canvas.SetLeft(rect, pX);
                 Canvas.SetTop(rect, pY);
                 canvas.Children.Add(rect);
+                
 
                 Monster_Positions[i].Last_Monster_Position_X = pX;
                 Monster_Positions[i].Last_Monster_Position_Y = pY;
+
+                clicks++;
+                if (clicks == 5)
+                {
+                    List_Last_Positions.RemoveAt(0);
+                    clicks = 0;
+                }
             }
         }
 
@@ -286,21 +410,47 @@ namespace DungeonCrawler_UserControl
             int Nx = r.Next(0, 950);
             int Ny = r.Next(0, 500);
 
-            Rectangle rect;
-            rect = new Rectangle();
-            ImageBrush imgBrush = new ImageBrush();
-            imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
-            rect.Fill = imgBrush;
-            rect.Width = 50;
-            rect.Height = 50;
-            Canvas.SetLeft(rect, Nx);
-            Canvas.SetTop(rect, Ny);
-            canvas.Children.Add(rect);
+            if((Nx != last_Player_Position_X) && (Ny != last_Player_Position_Y))
+            {
+                Rectangle rect;
+                rect = new Rectangle();
+                ImageBrush imgBrush = new ImageBrush();
+                imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
+                rect.Fill = imgBrush;
+                rect.Width = 50;
+                rect.Height = 50;
+                Canvas.SetLeft(rect, Nx);
+                Canvas.SetTop(rect, Ny);
+                canvas.Children.Add(rect);
 
-            int last_Monster_Position_X = Nx;
-            int last_Monster_Position_Y = Ny;
+                int last_Monster_Position_X = Nx;
+                int last_Monster_Position_Y = Ny;
 
-            Monster_Positions.Add(new Monster_Token(last_Monster_Position_X,last_Monster_Position_Y));
+                Monster_Positions.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y));
+                List_Last_Positions.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y));
+            }
+            else
+            {
+                int Second_P_X = r.Next(0, 950);
+                int Second_P_Y = r.Next(0, 500);
+
+                Rectangle rect;
+                rect = new Rectangle();
+                ImageBrush imgBrush = new ImageBrush();
+                imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
+                rect.Fill = imgBrush;
+                rect.Width = 50;
+                rect.Height = 50;
+                Canvas.SetLeft(rect, Second_P_X);
+                Canvas.SetTop(rect, Second_P_Y);
+                canvas.Children.Add(rect);
+
+                int Second_last_Monster_Position_X = Second_P_X;
+                int Second_last_Monster_Position_Y = Second_P_Y;
+
+                Monster_Positions.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y));
+                List_Last_Positions.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y));
+            }
         }
     }
 }

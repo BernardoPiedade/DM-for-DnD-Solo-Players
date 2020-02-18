@@ -492,7 +492,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 15);
             this.label1.TabIndex = 51;
-            this.label1.Text = "© 2019 Copyright: Bernardo Piedade";
+            this.label1.Text = "© 2020 Copyright: Bernardo Piedade";
             // 
             // Pet_Sheet_Button
             // 
