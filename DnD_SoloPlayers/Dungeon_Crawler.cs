@@ -17,5 +17,17 @@ namespace DnD_SoloPlayers
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
+
+        private void Dungeon_Crawler_FormClosing1(object sender, FormClosingEventArgs e)
+        {
+            DungeonCrawler_UserControl.UserControl1.Monster_Positions1.Clear();
+            DungeonCrawler_UserControl.UserControl1.List_Last_Positions1.Clear();
+        }
+
+        private void Dungeon_Crawler_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DungeonCrawler_UserControl.UserControl1.Monster_Positions1.Clear();
+            DungeonCrawler_UserControl.UserControl1.List_Last_Positions1.Clear();
+        }
     }
 }

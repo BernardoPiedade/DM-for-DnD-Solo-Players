@@ -30,6 +30,7 @@
         {
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.userControl11 = new DungeonCrawler_UserControl.UserControl1();
+            
             this.SuspendLayout();
             // 
             // elementHost1
@@ -50,8 +51,10 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dungeon_Crawler";
-            this.Text = "Infinite Dungeon Crawler";
+            this.Text = "Random Combat";
             this.ResumeLayout(false);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dungeon_Crawler_FormClosing1);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dungeon_Crawler_FormClosed);
 
         }
 
