@@ -476,6 +476,7 @@ namespace DungeonCrawler_UserControl
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+            MessageBox.Show("hello");
         }
     }
 }
