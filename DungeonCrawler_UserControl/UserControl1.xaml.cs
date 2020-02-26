@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,32 +25,38 @@ namespace DungeonCrawler_UserControl
     {
         int last_Monster_Position_X;
         int last_Monster_Position_Y;
+        int monster_Speed;
 
         public Monster_Token()
         {
             last_Monster_Position_X = 0;
             last_Monster_Position_Y = 0;
+            monster_Speed = 0;
         }
 
         public Monster_Token(Monster_Token m)
         {
             last_Monster_Position_X = m.last_Monster_Position_X;
             last_Monster_Position_Y = m.last_Monster_Position_Y;
+            monster_Speed = m.monster_Speed;
         }
 
-        public Monster_Token(int last_Monster_Position_X, int last_Monster_Position_Y)
+        public Monster_Token(int last_Monster_Position_X, int last_Monster_Position_Y, int monster_Speed)
         {
             this.Last_Monster_Position_X = last_Monster_Position_X;
             this.Last_Monster_Position_Y = last_Monster_Position_Y;
+            this.Monster_Speed = monster_Speed;
         }
 
         public int Last_Monster_Position_X { get => last_Monster_Position_X; set => last_Monster_Position_X = value; }
         public int Last_Monster_Position_Y { get => last_Monster_Position_Y; set => last_Monster_Position_Y = value; }
+        public int Monster_Speed { get => monster_Speed; set => monster_Speed = value; }
 
         public override bool Equals(object obj)
         {
             if (((Monster_Token)obj).last_Monster_Position_X == last_Monster_Position_X &&
-                ((Monster_Token)obj).last_Monster_Position_Y == last_Monster_Position_Y)
+                ((Monster_Token)obj).last_Monster_Position_Y == last_Monster_Position_Y &&
+                ((Monster_Token)obj).monster_Speed == monster_Speed)
                 return true;
             return false;
         }
@@ -75,20 +83,20 @@ namespace DungeonCrawler_UserControl
         public UserControl1()
         {
             InitializeComponent();
+            string folderPath = "img";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
 
-            //DamageType.Add("Slashing");
-            //DamageType.Add("Piercing");
-            //DamageType.Add("Bludgeoning");
-            //DamageType.Add("Poison");
-            //DamageType.Add("Acid");
-            //DamageType.Add("Fire");
-            //DamageType.Add("Cold");
-            //DamageType.Add("Radiant");
-            //DamageType.Add("Necrotic");
-            //DamageType.Add("Lightning");
-            //DamageType.Add("Thunder");
-            //DamageType.Add("Force");
-            //DamageType.Add("Psychic");
+            string Player_Img_File = "player.png";
+            string Monster_Img_File = "Monster.png";
+
+            if(File.Exists(Player_Img_File) && File.Exists(Monster_Img_File))
+            {
+                File.Move(Player_Img_File, folderPath);
+                File.Move(Monster_Img_File, folderPath);
+            }
 
             setPlayerPosition();
         }
@@ -248,8 +256,8 @@ namespace DungeonCrawler_UserControl
 
             for (int i = 0; i < Monster_Positions1.Count; i++)
             {
-                int X = rd.Next(0, 101);
-                int Y = rd.Next(0, 101);
+                int X = rd.Next(0, Monster_Positions1[i].Monster_Speed);
+                int Y = rd.Next(0, Monster_Positions1[i].Monster_Speed);
                 int Plus_Minus = rd.Next(0, 2);
 
                 Rectangle r;
@@ -333,25 +341,25 @@ namespace DungeonCrawler_UserControl
                     {
                         if (pX == (Monster_Positions1[i - 1].Last_Monster_Position_X))
                         {
-                            if((pX += 100) <= 950)
+                            if((pX += 50) <= 950)
                             {
-                                pX += 100;
+                                pX += 50;
                             }
                             else
                             {
-                                pX -= 100;
+                                pX -= 50;
                             }
                         }
 
                         if (pY == (Monster_Positions1[i - 1].Last_Monster_Position_Y))
                         {
-                            if((pY += 100) <= 500)
+                            if((pY += 50) <= 500)
                             {
-                                pY += 100;
+                                pY += 50;
                             }
                             else
                             {
-                                pY -= 100;
+                                pY -= 50;
                             }
                         }
                     }
@@ -359,25 +367,25 @@ namespace DungeonCrawler_UserControl
                     {
                         if (pX == (Monster_Positions1[i - 1].Last_Monster_Position_X))
                         {
-                            if((pX -= 100) >= 0)
+                            if((pX -= 50) >= 0)
                             {
-                                pX -= 100;
+                                pX -= 50;
                             }
                             else
                             {
-                                pX += 100;
+                                pX += 50;
                             }
                         }
 
                         if (pY == (Monster_Positions1[i - 1].Last_Monster_Position_Y))
                         {
-                            if((pY -= 100) >= 0)
+                            if((pY -= 50) >= 0)
                             {
-                                pY -= 100;
+                                pY -= 50;
                             }
                             else
                             {
-                                pY += 100;
+                                pY += 50;
                             }
                         }
                     }
@@ -399,7 +407,7 @@ namespace DungeonCrawler_UserControl
                 Monster_Positions1[i].Last_Monster_Position_Y = pY;
 
                 clicks++;
-                if (clicks == 5)
+                if (clicks == 7)
                 {
                     List_Last_Positions1.RemoveAt(0);
                     clicks = 0;
@@ -412,6 +420,14 @@ namespace DungeonCrawler_UserControl
             Random r = new Random();
             int Nx = r.Next(0, 950);
             int Ny = r.Next(0, 500);
+
+            int Speed = Int32.Parse(Monster_Speed.Text);
+
+            if(Speed == 0)
+            {
+                Speed = 50;
+            }
+            
 
             if((Nx != last_Player_Position_X) && (Ny != last_Player_Position_Y))
             {
@@ -429,8 +445,8 @@ namespace DungeonCrawler_UserControl
                 int last_Monster_Position_X = Nx;
                 int last_Monster_Position_Y = Ny;
 
-                Monster_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y));
-                List_Last_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y));
+                Monster_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
+                List_Last_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
             }
             else
             {
@@ -451,9 +467,15 @@ namespace DungeonCrawler_UserControl
                 int Second_last_Monster_Position_X = Second_P_X;
                 int Second_last_Monster_Position_Y = Second_P_Y;
 
-                Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y));
-                List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y));
+                Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
+                List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
             }
+        }
+
+        private void Monster_Speed_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
