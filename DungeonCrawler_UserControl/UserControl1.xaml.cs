@@ -82,7 +82,7 @@ namespace DungeonCrawler_UserControl
 
         public UserControl1()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             string folderPath = "img";
             if (!Directory.Exists(folderPath))
             {
