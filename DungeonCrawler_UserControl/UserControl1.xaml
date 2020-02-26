@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DungeonCrawler_UserControl"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="1000">
+             d:DesignHeight="670" d:DesignWidth="1000">
     <Grid Background="White">
         <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="1000" KeyDown="canvas_KeyDown" Focusable="True"/>
-        <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="71" Margin="10,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="745" FontFamily="Arial Rounded MT Bold" FontSize="15" IsEnabled="False"/>
-        <Button x:Name="End_turn_Button" HorizontalAlignment="Left" Height="25" Margin="761,578,0,47" Width="100" Content="End Turn" Click="End_turn_Button_Click" Focusable="False"></Button>
-        <Button x:Name="Add_Monster" HorizontalAlignment="Left" Height="25" Margin="880,589,0,24" Width="100" Content="Add Monster" Focusable="False" Click="Add_Monster_Click" RenderTransformOrigin="1.37,0.44"></Button>
-        <GroupBox Header="Create Monster" HorizontalAlignment="Left" Height="86" Margin="865,544,0,0" VerticalAlignment="Top" Width="125">
-            <TextBox x:Name="Monster_Speed" HorizontalAlignment="Left" Height="20" Margin="9,9,0,0" TextWrapping="Wrap" Text="Speed" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.31,0.522" PreviewTextInput="Monster_Speed_PreviewTextInput"/>
-
+        <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="87" Margin="10,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="745" FontFamily="Arial Rounded MT Bold" FontSize="15" IsEnabled="False"/>
+        <Button x:Name="End_turn_Button" HorizontalAlignment="Left" Height="26" Margin="890,568,0,56" Width="100" Content="End Turn" Click="End_turn_Button_Click" Focusable="False"></Button>
+        <Button x:Name="Add_Monster" HorizontalAlignment="Left" Height="25" Margin="775,599,0,39" Width="100" Content="Add Monster" Focusable="False" Click="Add_Monster_Click" RenderTransformOrigin="1.37,0.44"></Button>
+        <GroupBox Header="Create Monster" HorizontalAlignment="Left" Height="101" Margin="760,541,0,0" VerticalAlignment="Top" Width="125">
+            <TextBox x:Name="Monster_Speed" HorizontalAlignment="Left" Height="20" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.31,0.522" PreviewTextInput="Monster_Speed_PreviewTextInput" Focusable="False" MouseDown="Monster_Speed_MouseDown"/>
         </GroupBox>
+        <Label Content="Monster Speed" HorizontalAlignment="Left" Margin="770,562,0,0" VerticalAlignment="Top" Height="16" Padding="0"/>
     </Grid>
 </UserControl>
     

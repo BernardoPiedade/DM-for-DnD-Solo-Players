@@ -447,6 +447,8 @@ namespace DungeonCrawler_UserControl
 
                 Monster_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
                 List_Last_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
+
+                Monster_Speed.Focusable = false;
             }
             else
             {
@@ -469,6 +471,8 @@ namespace DungeonCrawler_UserControl
 
                 Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
                 List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
+
+                Monster_Speed.Focusable = false;
             }
         }
 
@@ -476,6 +480,11 @@ namespace DungeonCrawler_UserControl
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Monster_Speed_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Monster_Speed.Focusable = true;
         }
     }
 }
