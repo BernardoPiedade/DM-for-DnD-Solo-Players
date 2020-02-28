@@ -65,10 +65,11 @@ namespace DungeonCrawler_UserControl
 
     public partial class UserControl1 : UserControl
     {
-        //static List<string> DamageType = new List<string>();
         static List<Monster_Token> Monster_Positions = new List<Monster_Token>();
-        //List_Last_Positions -> max to 5 records
+        //List_Last_Positions -> max to 7 records
         static List<Monster_Token> List_Last_Positions = new List<Monster_Token>();
+        //
+        static List<string> Monster_Actions_List = new List<string>();
         static Random rnd = new Random();
         static int x = rnd.Next(0, 950);
         static int y = rnd.Next(0, 500);
@@ -79,24 +80,11 @@ namespace DungeonCrawler_UserControl
 
         public static List<Monster_Token> Monster_Positions1 { get => Monster_Positions; set => Monster_Positions = value; }
         public static List<Monster_Token> List_Last_Positions1 { get => List_Last_Positions; set => List_Last_Positions = value; }
+        public static List<string> Monster_Actions_List1 { get => Monster_Actions_List; set => Monster_Actions_List = value; }
 
         public UserControl1()
         {
             InitializeComponent();
-            string folderPath = "img";
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            string Player_Img_File = "player.png";
-            string Monster_Img_File = "Monster.png";
-
-            if(File.Exists(Player_Img_File) && File.Exists(Monster_Img_File))
-            {
-                File.Move(Player_Img_File, folderPath);
-                File.Move(Monster_Img_File, folderPath);
-            }
 
             setPlayerPosition();
         }
@@ -247,6 +235,8 @@ namespace DungeonCrawler_UserControl
 
         private void End_turn_Button_Click(object sender, RoutedEventArgs e)
         {
+            Monster_Actions_List1.Clear();
+
             Random rd = new Random();
 
             int pX = 0;
@@ -401,7 +391,20 @@ namespace DungeonCrawler_UserControl
                 Canvas.SetLeft(rect, pX);
                 Canvas.SetTop(rect, pY);
                 canvas.Children.Add(rect);
-                
+
+
+                //Generate monster action
+                int Determine_Action = rd.Next(1, 5);
+                if(Determine_Action == 1 || Determine_Action == 3)
+                {
+                    int Monster_D20 = rd.Next(1, 21);
+                    Monster_Actions_List1.Add("Monster "+(i+1)+" rolled "+ Monster_D20 +" on its d20");
+                }
+                else
+                {
+                    Monster_Actions_List1.Add("Monster " + (i+1) + " just moved arround...");
+                }
+
 
                 Monster_Positions1[i].Last_Monster_Position_X = pX;
                 Monster_Positions1[i].Last_Monster_Position_Y = pY;
@@ -413,67 +416,14 @@ namespace DungeonCrawler_UserControl
                     clicks = 0;
                 }
             }
+
+            string Actions = string.Join("\r\n", Monster_Actions_List1.ToArray());
+            textbox.Text = Actions;
         }
 
         private void Add_Monster_Click(object sender, RoutedEventArgs e)
         {
-            Random r = new Random();
-            int Nx = r.Next(0, 950);
-            int Ny = r.Next(0, 500);
-
-            int Speed = Int32.Parse(Monster_Speed.Text);
-
-            if(Speed == 0)
-            {
-                Speed = 50;
-            }
-            
-
-            if((Nx != last_Player_Position_X) && (Ny != last_Player_Position_Y))
-            {
-                Rectangle rect;
-                rect = new Rectangle();
-                ImageBrush imgBrush = new ImageBrush();
-                imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
-                rect.Fill = imgBrush;
-                rect.Width = 50;
-                rect.Height = 50;
-                Canvas.SetLeft(rect, Nx);
-                Canvas.SetTop(rect, Ny);
-                canvas.Children.Add(rect);
-
-                int last_Monster_Position_X = Nx;
-                int last_Monster_Position_Y = Ny;
-
-                Monster_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
-                List_Last_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
-
-                Monster_Speed.Focusable = false;
-            }
-            else
-            {
-                int Second_P_X = r.Next(0, 950);
-                int Second_P_Y = r.Next(0, 500);
-
-                Rectangle rect;
-                rect = new Rectangle();
-                ImageBrush imgBrush = new ImageBrush();
-                imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
-                rect.Fill = imgBrush;
-                rect.Width = 50;
-                rect.Height = 50;
-                Canvas.SetLeft(rect, Second_P_X);
-                Canvas.SetTop(rect, Second_P_Y);
-                canvas.Children.Add(rect);
-
-                int Second_last_Monster_Position_X = Second_P_X;
-                int Second_last_Monster_Position_Y = Second_P_Y;
-
-                Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
-                List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
-
-                Monster_Speed.Focusable = false;
-            }
+            Add_Monster_Func();
         }
 
         private void Monster_Speed_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -485,6 +435,98 @@ namespace DungeonCrawler_UserControl
         private void Monster_Speed_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Monster_Speed.Focusable = true;
+        }
+
+        private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Monster_Speed.Focusable = false;
+            canvas.Focus();
+        }
+
+        private void Monster_Speed_MouseLeave(object sender, MouseEventArgs e)
+        {
+            canvas.Focus();
+            Monster_Speed.Focusable = false;
+        }
+
+        private void Monster_Speed_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Add_Monster_Func();
+            }
+        }
+
+        private void Add_Monster_Func()
+        {
+            try
+            {
+                Random r = new Random();
+                int Nx = r.Next(0, 950);
+                int Ny = r.Next(0, 500);
+
+                int Speed = Int32.Parse(Monster_Speed.Text);
+
+                if ((Speed < 50) || (Speed < 0) || Speed.Equals("") || Speed.Equals(" "))
+                {
+                    Speed = 50;
+                }
+                else if (Speed > 150)
+                {
+                    Speed = 150;
+                }
+
+
+                if ((Nx != last_Player_Position_X) && (Ny != last_Player_Position_Y))
+                {
+                    Rectangle rect;
+                    rect = new Rectangle();
+                    ImageBrush imgBrush = new ImageBrush();
+                    imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
+                    rect.Fill = imgBrush;
+                    rect.Width = 50;
+                    rect.Height = 50;
+                    Canvas.SetLeft(rect, Nx);
+                    Canvas.SetTop(rect, Ny);
+                    canvas.Children.Add(rect);
+
+                    int last_Monster_Position_X = Nx;
+                    int last_Monster_Position_Y = Ny;
+
+                    Monster_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
+                    List_Last_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
+
+                    Monster_Speed.Focusable = false;
+                }
+                else
+                {
+                    int Second_P_X = r.Next(0, 950);
+                    int Second_P_Y = r.Next(0, 500);
+
+                    Rectangle rect;
+                    rect = new Rectangle();
+                    ImageBrush imgBrush = new ImageBrush();
+                    imgBrush.ImageSource = new BitmapImage(new Uri(@"img/Monster.png", UriKind.Relative));
+                    rect.Fill = imgBrush;
+                    rect.Width = 50;
+                    rect.Height = 50;
+                    Canvas.SetLeft(rect, Second_P_X);
+                    Canvas.SetTop(rect, Second_P_Y);
+                    canvas.Children.Add(rect);
+
+                    int Second_last_Monster_Position_X = Second_P_X;
+                    int Second_last_Monster_Position_Y = Second_P_Y;
+
+                    Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
+                    List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
+
+                    Monster_Speed.Focusable = false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong :(\r\n\r\nPlease try again and if the problem persists, feel free to contact me.\r\n\r\nSomething that might be causing the problem is that you didn't add a value to the monster speed.");
+            }
         }
     }
 }

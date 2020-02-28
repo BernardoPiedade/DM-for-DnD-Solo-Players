@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Xml;
 using MySql.Data.MySqlClient;
 using System.Drawing;
+using System.IO;
 
 namespace DnD_SoloPlayers
 {
@@ -285,6 +286,21 @@ namespace DnD_SoloPlayers
             SD_Custom_Quests.Visible = true;
             Infinite_Dungeon_Crawler_Label.Visible = true;
             Enter_Dungeon_Crawler_Button.Visible = true;
+
+            string folderPath = @"img\";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string Player_Img_File = "player.png";
+            string Monster_Img_File = "Monster.png";
+
+            if (File.Exists(Player_Img_File) && File.Exists(Monster_Img_File))
+            {
+                File.Move(Player_Img_File, folderPath+"\\"+Player_Img_File);
+                File.Move(Monster_Img_File, folderPath+"\\"+Monster_Img_File);
+            }
 
             UserID_Number.Text = checkId;
         }
