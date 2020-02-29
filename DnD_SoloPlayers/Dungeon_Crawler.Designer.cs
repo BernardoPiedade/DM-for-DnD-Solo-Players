@@ -37,7 +37,7 @@
             // 
             this.elementHost1.Location = new System.Drawing.Point(0, -1);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(994, 670);
+            this.elementHost1.Size = new System.Drawing.Size(1000, 670);
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.userControl11;
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 670);
+            this.ClientSize = new System.Drawing.Size(1000, 670);
             this.Controls.Add(this.elementHost1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

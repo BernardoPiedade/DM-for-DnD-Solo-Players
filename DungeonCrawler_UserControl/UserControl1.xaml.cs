@@ -77,6 +77,7 @@ namespace DungeonCrawler_UserControl
         //get last player position
         static int last_Player_Position_X = 0;
         static int last_Player_Position_Y = 0;
+        static int player_Speed = 0;
 
         public static List<Monster_Token> Monster_Positions1 { get => Monster_Positions; set => Monster_Positions = value; }
         public static List<Monster_Token> List_Last_Positions1 { get => List_Last_Positions; set => List_Last_Positions = value; }
@@ -439,8 +440,23 @@ namespace DungeonCrawler_UserControl
 
         private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Monster_Speed.Focusable = false;
-            canvas.Focus();
+            int MousePosition_X = Convert.ToInt32(Mouse.GetPosition(canvas).X);
+            int MousePosition_Y = Convert.ToInt32(Mouse.GetPosition(canvas).Y);
+
+            for (int i = 0;i < Monster_Positions1.Count(); i++)
+            {
+                if((MousePosition_X == Monster_Positions1[i].Last_Monster_Position_X) && (MousePosition_Y == Monster_Positions1[i].Last_Monster_Position_Y))
+                {
+                    Rectangle r;
+                    r = new Rectangle();
+                    r.Fill = Brushes.White;
+                    r.Width = 50;
+                    r.Height = 50;
+                    Canvas.SetLeft(r, Monster_Positions1[i].Last_Monster_Position_X);
+                    Canvas.SetTop(r, Monster_Positions1[i].Last_Monster_Position_Y);
+                    canvas.Children.Add(r);
+                }
+            }
         }
 
         private void Monster_Speed_MouseLeave(object sender, MouseEventArgs e)
@@ -526,6 +542,27 @@ namespace DungeonCrawler_UserControl
             catch
             {
                 MessageBox.Show("Something went wrong :(\r\n\r\nPlease try again and if the problem persists, feel free to contact me.\r\n\r\nSomething that might be causing the problem is that you didn't add a value to the monster speed.");
+            }
+        }
+
+        private void canvas_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            int MousePosition_X = Convert.ToInt32(Mouse.GetPosition(canvas).X);
+            int MousePosition_Y = Convert.ToInt32(Mouse.GetPosition(canvas).Y);
+
+            for (int i = 0; i < Monster_Positions1.Count(); i++)
+            {
+                if ((MousePosition_X == Monster_Positions1[i].Last_Monster_Position_X) && (MousePosition_Y == Monster_Positions1[i].Last_Monster_Position_Y))
+                {
+                    Rectangle r;
+                    r = new Rectangle();
+                    r.Fill = Brushes.White;
+                    r.Width = 50;
+                    r.Height = 50;
+                    Canvas.SetLeft(r, Monster_Positions1[i].Last_Monster_Position_X);
+                    Canvas.SetTop(r, Monster_Positions1[i].Last_Monster_Position_Y);
+                    canvas.Children.Add(r);
+                }
             }
         }
     }
