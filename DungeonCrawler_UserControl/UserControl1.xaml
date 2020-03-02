@@ -7,14 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="670" d:DesignWidth="1000">
     <Grid Background="White">
-        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="1000" KeyDown="canvas_KeyDown" Focusable="True" MouseDown="canvas_MouseDown" MouseUp="canvas_MouseUp"/>
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="1000" KeyDown="canvas_KeyDown" Focusable="True"/>
         <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="87" Margin="10,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="694" FontFamily="Arial Rounded MT Bold" FontSize="15" IsEnabled="False"/>
-        <Button x:Name="End_turn_Button" HorizontalAlignment="Left" Height="26" Margin="864,584,0,60" Width="106" Content="End Turn" Click="End_turn_Button_Click" Focusable="False"></Button>
+        <Button x:Name="End_turn_Button" HorizontalAlignment="Left" Height="26" Margin="868,555,0,89" Width="106" Content="End Turn" Click="End_turn_Button_Click" Focusable="False"></Button>
         <Button x:Name="Add_Monster" HorizontalAlignment="Left" Height="25" Margin="724,602,0,43" Width="100" Content="Add Monster" Focusable="False" Click="Add_Monster_Click" RenderTransformOrigin="1.37,0.44"></Button>
         <GroupBox Header="Create Monster" HorizontalAlignment="Left" Height="101" Margin="709,541,0,0" VerticalAlignment="Top" Width="125">
             <TextBox x:Name="Monster_Speed" HorizontalAlignment="Left" Height="20" Margin="9,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.31,0.522" PreviewTextInput="Monster_Speed_PreviewTextInput" Focusable="False" MouseDown="Monster_Speed_MouseDown" MouseLeave="Monster_Speed_MouseLeave" KeyDown="Monster_Speed_KeyDown"/>
         </GroupBox>
         <Label Content="Monster Speed" HorizontalAlignment="Left" Margin="719,560,0,0" VerticalAlignment="Top" Height="16" Padding="0"/>
+        <ComboBox x:Name="ComboBox_Monster_List" HorizontalAlignment="Left" Margin="851,586,0,0" VerticalAlignment="Top" Width="139"/>
+        <Button x:Name="Remove_Monster" Content="Remove Monster" HorizontalAlignment="Left" Margin="868,613,0,0" VerticalAlignment="Top" Width="106" Height="24" Click="Remove_Monster_Click"/>
     </Grid>
 </UserControl>
     

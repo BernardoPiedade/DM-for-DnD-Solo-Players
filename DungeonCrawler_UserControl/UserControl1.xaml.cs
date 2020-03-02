@@ -245,6 +245,8 @@ namespace DungeonCrawler_UserControl
 
             int clicks = 0;
 
+            ComboBox_Monster_List.Items.Clear();
+
             for (int i = 0; i < Monster_Positions1.Count; i++)
             {
                 int X = rd.Next(0, Monster_Positions1[i].Monster_Speed);
@@ -418,6 +420,11 @@ namespace DungeonCrawler_UserControl
                 }
             }
 
+            for(int i = 0; i < Monster_Positions1.Count(); i++)
+            {
+                ComboBox_Monster_List.Items.Add("Monster " + (i + 1) + ":  X-> " + Monster_Positions1[i].Last_Monster_Position_X + " |  Y-> " + Monster_Positions1[i].Last_Monster_Position_Y);
+            }
+
             string Actions = string.Join("\r\n", Monster_Actions_List1.ToArray());
             textbox.Text = Actions;
         }
@@ -436,27 +443,6 @@ namespace DungeonCrawler_UserControl
         private void Monster_Speed_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Monster_Speed.Focusable = true;
-        }
-
-        private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            int MousePosition_X = Convert.ToInt32(Mouse.GetPosition(canvas).X);
-            int MousePosition_Y = Convert.ToInt32(Mouse.GetPosition(canvas).Y);
-
-            for (int i = 0;i < Monster_Positions1.Count(); i++)
-            {
-                if((MousePosition_X == Monster_Positions1[i].Last_Monster_Position_X) && (MousePosition_Y == Monster_Positions1[i].Last_Monster_Position_Y))
-                {
-                    Rectangle r;
-                    r = new Rectangle();
-                    r.Fill = Brushes.White;
-                    r.Width = 50;
-                    r.Height = 50;
-                    Canvas.SetLeft(r, Monster_Positions1[i].Last_Monster_Position_X);
-                    Canvas.SetTop(r, Monster_Positions1[i].Last_Monster_Position_Y);
-                    canvas.Children.Add(r);
-                }
-            }
         }
 
         private void Monster_Speed_MouseLeave(object sender, MouseEventArgs e)
@@ -512,6 +498,9 @@ namespace DungeonCrawler_UserControl
                     Monster_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
                     List_Last_Positions1.Add(new Monster_Token(last_Monster_Position_X, last_Monster_Position_Y, Speed));
 
+                    int pos = Monster_Positions1.Count() - 1;
+                    ComboBox_Monster_List.Items.Add("Monster " +(pos+1)+":  X-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_X + " |  Y-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_Y);
+
                     Monster_Speed.Focusable = false;
                 }
                 else
@@ -536,33 +525,43 @@ namespace DungeonCrawler_UserControl
                     Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
                     List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
 
+                    ComboBox_Monster_List.Items.Add("Monster " + Monster_Positions1[Monster_Positions1.Count() - 1] + ":  X-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_X + " |  Y-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_Y);
+
                     Monster_Speed.Focusable = false;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void Remove_Monster_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Rectangle r;
+                r = new Rectangle();
+                r.Fill = Brushes.White;
+                r.Width = 50;
+                r.Height = 50;
+                Canvas.SetLeft(r, Monster_Positions1[ComboBox_Monster_List.SelectedIndex].Last_Monster_Position_X);
+                Canvas.SetTop(r, Monster_Positions1[ComboBox_Monster_List.SelectedIndex].Last_Monster_Position_Y);
+                canvas.Children.Add(r);
+
+                Monster_Positions1.RemoveAt(ComboBox_Monster_List.SelectedIndex);
+                ComboBox_Monster_List.Items.Remove(ComboBox_Monster_List.SelectedIndex);
+
+                ComboBox_Monster_List.Items.Clear();
+
+                for(int i = 0; i < Monster_Positions1.Count(); i++)
+                {
+                    ComboBox_Monster_List.Items.Add("Monster " + (i + 1) + ":  X-> " + Monster_Positions1[i].Last_Monster_Position_X + " |  Y-> " + Monster_Positions1[i].Last_Monster_Position_Y);
                 }
             }
             catch
             {
-                MessageBox.Show("Something went wrong :(\r\n\r\nPlease try again and if the problem persists, feel free to contact me.\r\n\r\nSomething that might be causing the problem is that you didn't add a value to the monster speed.");
-            }
-        }
-
-        private void canvas_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            int MousePosition_X = Convert.ToInt32(Mouse.GetPosition(canvas).X);
-            int MousePosition_Y = Convert.ToInt32(Mouse.GetPosition(canvas).Y);
-
-            for (int i = 0; i < Monster_Positions1.Count(); i++)
-            {
-                if ((MousePosition_X == Monster_Positions1[i].Last_Monster_Position_X) && (MousePosition_Y == Monster_Positions1[i].Last_Monster_Position_Y))
-                {
-                    Rectangle r;
-                    r = new Rectangle();
-                    r.Fill = Brushes.White;
-                    r.Width = 50;
-                    r.Height = 50;
-                    Canvas.SetLeft(r, Monster_Positions1[i].Last_Monster_Position_X);
-                    Canvas.SetTop(r, Monster_Positions1[i].Last_Monster_Position_Y);
-                    canvas.Children.Add(r);
-                }
+                MessageBox.Show("You must select a monster to remove.");
             }
         }
     }
