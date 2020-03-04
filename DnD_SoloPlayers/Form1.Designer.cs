@@ -569,11 +569,11 @@
             // 
             this.Infinite_Dungeon_Crawler_Label.AutoSize = true;
             this.Infinite_Dungeon_Crawler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Infinite_Dungeon_Crawler_Label.Location = new System.Drawing.Point(652, 182);
+            this.Infinite_Dungeon_Crawler_Label.Location = new System.Drawing.Point(667, 182);
             this.Infinite_Dungeon_Crawler_Label.Name = "Infinite_Dungeon_Crawler_Label";
-            this.Infinite_Dungeon_Crawler_Label.Size = new System.Drawing.Size(99, 13);
+            this.Infinite_Dungeon_Crawler_Label.Size = new System.Drawing.Size(68, 13);
             this.Infinite_Dungeon_Crawler_Label.TabIndex = 59;
-            this.Infinite_Dungeon_Crawler_Label.Text = "Random Combat";
+            this.Infinite_Dungeon_Crawler_Label.Text = "Battle Map";
             // 
             // Form1
             // 

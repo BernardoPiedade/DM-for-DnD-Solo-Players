@@ -137,6 +137,10 @@ namespace DungeonCrawler_UserControl
 
                     last_Player_Position_X = x;
                     last_Player_Position_Y = y;
+
+                    canvas.Focus();
+                    ComboBox_Monster_List.Focusable = false;
+                    Remove_Monster.Focusable = false;
                 }
             }
             else if(e.Key == Key.Down)
@@ -168,6 +172,10 @@ namespace DungeonCrawler_UserControl
 
                     last_Player_Position_X = x;
                     last_Player_Position_Y = y;
+
+                    canvas.Focus();
+                    ComboBox_Monster_List.Focusable = false;
+                    Remove_Monster.Focusable = false;
                 }
             }
             else if(e.Key == Key.Left)
@@ -199,6 +207,10 @@ namespace DungeonCrawler_UserControl
 
                     last_Player_Position_X = x;
                     last_Player_Position_Y = y;
+
+                    canvas.Focus();
+                    ComboBox_Monster_List.Focusable = false;
+                    Remove_Monster.Focusable = false;
                 }
             }
             else if(e.Key == Key.Right)
@@ -230,6 +242,10 @@ namespace DungeonCrawler_UserControl
 
                     last_Player_Position_X = x;
                     last_Player_Position_Y = y;
+
+                    canvas.Focus();
+                    ComboBox_Monster_List.Focusable = false;
+                    Remove_Monster.Focusable = false;
                 }
             }
         }
@@ -502,6 +518,9 @@ namespace DungeonCrawler_UserControl
                     ComboBox_Monster_List.Items.Add("Monster " +(pos+1)+":  X-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_X + " |  Y-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_Y);
 
                     Monster_Speed.Focusable = false;
+                    canvas.Focus();
+                    ComboBox_Monster_List.Focusable = false;
+                    Remove_Monster.Focusable = false;
                 }
                 else
                 {
@@ -528,6 +547,9 @@ namespace DungeonCrawler_UserControl
                     ComboBox_Monster_List.Items.Add("Monster " + Monster_Positions1[Monster_Positions1.Count() - 1] + ":  X-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_X + " |  Y-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_Y);
 
                     Monster_Speed.Focusable = false;
+                    canvas.Focus();
+                    ComboBox_Monster_List.Focusable = false;
+                    Remove_Monster.Focusable = false;
                 }
             }
             catch(Exception e)
@@ -558,11 +580,21 @@ namespace DungeonCrawler_UserControl
                 {
                     ComboBox_Monster_List.Items.Add("Monster " + (i + 1) + ":  X-> " + Monster_Positions1[i].Last_Monster_Position_X + " |  Y-> " + Monster_Positions1[i].Last_Monster_Position_Y);
                 }
+                canvas.Focus();
+                ComboBox_Monster_List.Focusable = false;
+                Remove_Monster.Focusable = false;
             }
             catch
             {
                 MessageBox.Show("You must select a monster to remove.");
             }
+        }
+
+        private void ComboBox_Monster_List_MouseLeave(object sender, MouseEventArgs e)
+        {
+            canvas.Focus();
+            ComboBox_Monster_List.Focusable = false;
+            Remove_Monster.Focusable = false;
         }
     }
 }

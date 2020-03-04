@@ -15,7 +15,7 @@
             <TextBox x:Name="Monster_Speed" HorizontalAlignment="Left" Height="20" Margin="9,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.31,0.522" PreviewTextInput="Monster_Speed_PreviewTextInput" Focusable="False" MouseDown="Monster_Speed_MouseDown" MouseLeave="Monster_Speed_MouseLeave" KeyDown="Monster_Speed_KeyDown"/>
         </GroupBox>
         <Label Content="Monster Speed" HorizontalAlignment="Left" Margin="719,560,0,0" VerticalAlignment="Top" Height="16" Padding="0"/>
-        <ComboBox x:Name="ComboBox_Monster_List" HorizontalAlignment="Left" Margin="851,586,0,0" VerticalAlignment="Top" Width="139"/>
+        <ComboBox x:Name="ComboBox_Monster_List" HorizontalAlignment="Left" Margin="851,586,0,0" VerticalAlignment="Top" Width="139" MouseLeave="ComboBox_Monster_List_MouseLeave"/>
         <Button x:Name="Remove_Monster" Content="Remove Monster" HorizontalAlignment="Left" Margin="868,613,0,0" VerticalAlignment="Top" Width="106" Height="24" Click="Remove_Monster_Click"/>
     </Grid>
 </UserControl>

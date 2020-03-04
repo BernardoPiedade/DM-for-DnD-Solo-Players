@@ -51,7 +51,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dungeon_Crawler";
-            this.Text = "Random Combat";
+            this.Text = "Battle Map";
             this.ResumeLayout(false);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dungeon_Crawler_FormClosing1);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dungeon_Crawler_FormClosed);
