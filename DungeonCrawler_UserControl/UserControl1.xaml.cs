@@ -74,10 +74,10 @@ namespace DungeonCrawler_UserControl
         static int x = rnd.Next(0, 950);
         static int y = rnd.Next(0, 500);
 
+
         //get last player position
         static int last_Player_Position_X = 0;
         static int last_Player_Position_Y = 0;
-        static int player_Speed = 0;
 
         public static List<Monster_Token> Monster_Positions1 { get => Monster_Positions; set => Monster_Positions = value; }
         public static List<Monster_Token> List_Last_Positions1 { get => List_Last_Positions; set => List_Last_Positions = value; }
@@ -87,11 +87,36 @@ namespace DungeonCrawler_UserControl
         {
             InitializeComponent();
 
+            canvas.Focus();
+            ComboBox_Monster_List.Focusable = false;
+            Remove_Monster.Focusable = false;
+
             setPlayerPosition();
         }
 
         private void setPlayerPosition()
         {
+            x = x - (x % 50);
+            y = y - (y % 50);
+
+            if(x > 500)
+            {
+                x = 500;
+            }
+            else if (x < 0)
+            {
+                x = 0;
+            }
+
+            if(y > 950)
+            {
+                y = 950;
+            }
+            else if(y < 50)
+            {
+                y = 50;
+            }
+
             Rectangle rect;
             rect = new Rectangle();
             ImageBrush imgBrush = new ImageBrush();
@@ -552,9 +577,9 @@ namespace DungeonCrawler_UserControl
                     Remove_Monster.Focusable = false;
                 }
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Something went wrong :(\r\n\r\nPlease try again and if the problem persists, feel free to contact me.\r\n\r\nSomething that might be causing the problem is that you didn't add a value to the monster speed.","Something went wrong");
             }
         }
 
