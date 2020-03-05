@@ -510,7 +510,7 @@ namespace DungeonCrawler_UserControl
 
                 int Speed = Int32.Parse(Monster_Speed.Text);
 
-                if ((Speed < 50) || (Speed < 0) || Speed.Equals("") || Speed.Equals(" "))
+                if ((Speed < 50) || Speed.Equals("") || Speed.Equals(" "))
                 {
                     Speed = 50;
                 }
@@ -569,7 +569,8 @@ namespace DungeonCrawler_UserControl
                     Monster_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
                     List_Last_Positions1.Add(new Monster_Token(Second_last_Monster_Position_X, Second_last_Monster_Position_Y, Speed));
 
-                    ComboBox_Monster_List.Items.Add("Monster " + Monster_Positions1[Monster_Positions1.Count() - 1] + ":  X-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_X + " |  Y-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_Y);
+                    int pos = Monster_Positions1.Count() - 1;
+                    ComboBox_Monster_List.Items.Add("Monster " + (pos + 1) + ":  X-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_X + " |  Y-> " + Monster_Positions1.ElementAt(Monster_Positions1.Count() - 1).Last_Monster_Position_Y);
 
                     Monster_Speed.Focusable = false;
                     canvas.Focus();
