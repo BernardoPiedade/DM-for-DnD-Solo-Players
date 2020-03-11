@@ -23,7 +23,7 @@ namespace DnD_SoloPlayers
         private void SD_Send_Click(object sender, EventArgs e)
         {
             string uID = "";
-            string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
+            string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
             string text = Quest_Text.Text;
             string user_name = User_name.Text;
 

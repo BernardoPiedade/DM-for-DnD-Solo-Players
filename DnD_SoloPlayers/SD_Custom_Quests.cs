@@ -21,7 +21,7 @@ namespace DnD_SoloPlayers
 
         private void Roll_Side_Quest_Click(object sender, EventArgs e)
         {
-            string ConnectionString = "Server=remotemysql.com; Port=3306; Database=Pfw7lneUyi; Uid=Pfw7lneUyi; Pwd=aZmR4ahZS2";
+            string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
             int max = 0;
             string text = "";
             string user_name = "";
@@ -77,9 +77,9 @@ namespace DnD_SoloPlayers
 
                 textBox1.Text = text + "\r\n\r\nQuest sent by: "+user_name;
             }
-            catch
+            catch(Exception r)
             {
-                MessageBox.Show("Couldn't connect with the database, please check your internet connection, or try again later. If the problem persists, feel free to contact me");
+                MessageBox.Show(r.ToString());
             }
         }
 
