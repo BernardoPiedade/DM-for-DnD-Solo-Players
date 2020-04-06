@@ -10,7 +10,7 @@ namespace DnD_SoloPlayers
     public partial class Form1 : Form
     {
         static string version = "";
-        static string actualVersion = "1.4.7";
+        static string actualVersion = "1.5.0";
         static string checkId = "";
 
         public Form1()

@@ -32,8 +32,9 @@ namespace DnD_SoloPlayers
             string v144 = "Version: 1.4.4 \r\nNew: \r\n\t-> Minor bug fixes;\r\n\t-> Updated database";
             string v146 = "Version: 1.4.6 \r\nNew: \r\n\t-> Fixed windows;\r\n\t-> Fixed bugs on PlayerSheet Edit;\r\n\t-> Added PetSheet and PetSheet Edit;\r\n\t-> Added Armorsmith;\r\n\t-> Fixed bugs from last update;";
             string v147 = "Version: 1.4.7 \r\nNew: \r\n\t Message from the developer: \"Last update brought some new bugs, sorry for\r\n\t the inconvenience\"\r\n\t-> Changed database location;\r\n\t-> Fixed bugs from last update;\r\n\t-> Fixed some issues in the design;";
+            string v150 = "Version: 1.5.0 \r\nNew: \r\n\t-> Added Random Combat;\r\n\t-> Fixed minor bugs that came with version 1.4.7\r\n\t-> Changed database provider";
 
-            textBox1.Text = v147 + "\r\n\r\n" + v146 + "\r\n\r\n" + v144 + "\r\n\r\n" + v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
+            textBox1.Text = v150 + "\r\n\r\n" + v147 + "\r\n\r\n" + v146 + "\r\n\r\n" + v144 + "\r\n\r\n" + v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
         }
     }
 }
