@@ -13,6 +13,9 @@ namespace DnD_SoloPlayers
         static string actualVersion = "1.5.0";
         static string checkId = "";
 
+        static string lang = "";
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -255,6 +258,8 @@ namespace DnD_SoloPlayers
             Documentation_B.Visible = false;
             Instagram_B.Visible = false;
             Twitter_B.Visible = false;
+            choose_Language.Visible = false;
+            Lang_Label.Visible = false;
 
             //Visible
             Hooks_Label.Visible = true;
@@ -283,9 +288,13 @@ namespace DnD_SoloPlayers
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
             UserID_Number.Visible = true;
-            SD_Custom_Quests.Visible = true;
+            SQ_Online_Quests.Visible = true;
             Infinite_Dungeon_Crawler_Label.Visible = true;
             Enter_Dungeon_Crawler_Button.Visible = true;
+
+            UserID_Number.Text = checkId;
+
+            // Create Img folder with images for Battle Map
 
             string folderPath = @"img\";
             if (!Directory.Exists(folderPath))
@@ -302,7 +311,49 @@ namespace DnD_SoloPlayers
                 File.Move(Monster_Img_File, folderPath+"\\"+Monster_Img_File);
             }
 
-            UserID_Number.Text = checkId;
+            // Create Configs folder
+
+            string configFolderPath = @"configs\";
+            if (!Directory.Exists(configFolderPath))
+            {
+                Directory.CreateDirectory(configFolderPath);
+            }
+
+            // Create language config file
+
+            string languageConfigFile = @"configs\language.conf";
+            string lang = "";
+
+            if (!File.Exists(languageConfigFile))
+            {
+                using (StreamWriter sw = File.CreateText(languageConfigFile))
+                {
+                    sw.Write("0");
+                }
+            }
+            else
+            {
+                using (StreamReader sr = new StreamReader(languageConfigFile))
+                {
+                    lang = sr.ReadLine();
+                }
+            }
+
+            // Set Language
+
+            choose_Language.Items.Add("en");
+            choose_Language.Items.Add("pt");
+
+            if(lang == "0")
+            {
+                choose_Language.Text = "en";
+            }
+            else
+            {
+                choose_Language.Text = "pt";
+            }
+
+            setLanguage();
         }
 
         private void AH_Town_Click(object sender, EventArgs e) => new AH().Show();
@@ -375,6 +426,8 @@ namespace DnD_SoloPlayers
             Documentation_B.Visible = false;
             Instagram_B.Visible = false;
             Twitter_B.Visible = false;
+            choose_Language.Visible = false;
+            Lang_Label.Visible = false;
 
             //Visible
             Hooks_Label.Visible = true;
@@ -403,7 +456,7 @@ namespace DnD_SoloPlayers
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
             UserID_Number.Visible = true;
-            SD_Custom_Quests.Visible = true;
+            SQ_Online_Quests.Visible = true;
             Infinite_Dungeon_Crawler_Label.Visible = true;
             Enter_Dungeon_Crawler_Button.Visible = true;
             if (version.Equals(actualVersion))
@@ -453,11 +506,13 @@ namespace DnD_SoloPlayers
             B_OW.Visible = false;
             Reddit_B.Visible = false;
             Documentation_B.Visible = false;
-            SD_Custom_Quests.Visible = false;
+            SQ_Online_Quests.Visible = false;
             Instagram_B.Visible = false;
             Twitter_B.Visible = false;
             Infinite_Dungeon_Crawler_Label.Visible = false;
             Enter_Dungeon_Crawler_Button.Visible = false;
+            choose_Language.Visible = false;
+            Lang_Label.Visible = false;
 
             //visible
             DiceBag_Label.Visible = true;
@@ -521,7 +576,7 @@ namespace DnD_SoloPlayers
             PlayerSheet_Button.Visible = false;
             P_Spell_List_Button.Visible = false;
             Pet_Sheet_Button.Visible = false;
-            SD_Custom_Quests.Visible = false;
+            SQ_Online_Quests.Visible = false;
             Infinite_Dungeon_Crawler_Label.Visible = false;
             Enter_Dungeon_Crawler_Button.Visible = false;
 
@@ -536,6 +591,8 @@ namespace DnD_SoloPlayers
             Documentation_B.Visible = true;
             Instagram_B.Visible = true;
             Twitter_B.Visible = true;
+            choose_Language.Visible = true;
+            Lang_Label.Visible = true;
             if (version.Equals(actualVersion))
             {
                 Version_Update_MSG.Text = version;
@@ -562,7 +619,7 @@ namespace DnD_SoloPlayers
             System.Diagnostics.Process.Start(DocUrl);
         }
 
-        private void SD_Custom_Quests_Click(object sender, EventArgs e) => new SD_Custom_Quests().Show();
+        private void SQ_Online_Quests_Click(object sender, EventArgs e) => new SD_Custom_Quests().Show();
 
         private void Pet_Sheet_Button_Click(object sender, EventArgs e) => new Pet_Sheet().Show();
 
@@ -651,5 +708,232 @@ namespace DnD_SoloPlayers
         }
 
         private void Enter_Dungeon_Crawler_Button_Click(object sender, EventArgs e) => new Dungeon_Crawler().Show();
+
+        private void choose_Language_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lang = choose_Language.SelectedIndex.ToString();
+            choose_Language.Text = choose_Language.SelectedIndex.ToString();
+
+            File.WriteAllText(@"configs\language.conf", lang);
+
+            setLanguage();
+        }
+
+        private void setLanguage()
+        {
+            if(lang == "1")
+            {
+                //Menu Oracle
+
+                //Hooks
+                CH_Town.Text = "Campanha";
+                AH_Town.Text = "Aventura";
+                Hooks_CustomSearch_B.Text = "Pesquisa Personalizada";
+                //Custom Search Design
+                Hooks_CustomSearch_B.Width = 81;
+                Hooks_CustomSearch_B.Height = 35;
+                Hooks_CustomSearch_B.Left = 156;
+                Hooks_CustomSearch_B.Top = 83;
+
+                //Side Quests
+                SideQuests_Label.Text = "Missões Secundárias";
+                //Side Quests Design
+                SideQuests_Label.Left = 298;
+                SideQuests_Label.Top = 9;
+
+                SQ_Town_Village.Text = "Cidade / Vila";
+                SQ_My_Quests.Text = "Missões";
+                SQ_Online_Quests.Text = "Missões Online";
+
+                //Random Encounter
+                RE_Label.Text = "Encontro Aleatório";
+                RE_Dungeon.Text = "Masmorra";
+                RE_Forest.Text = "Floresta";
+                RE_Desert.Text = "Deserto";
+                RE_Beach.Text = "Praia";
+
+                //Random NPC
+                RNPC_Label.Text = "NPC Aleatório";
+                NPC_CustomSearch.Text = "Pesquisa Personalizada";
+                //Custom Search Design
+                NPC_CustomSearch.Width = 81;
+                NPC_CustomSearch.Height = 35;
+                NPC_CustomSearch.Left = 669;
+                NPC_CustomSearch.Top = 54;
+                
+
+                //Items
+                Items_Label.Text = "Itens";
+                I_Magical.Text = "Mágicos";
+                I_BlackMarket.Text = "Mercado Negro";
+                //Black Market Design
+                I_BlackMarket.Width = 90;
+                I_BlackMarket.Height = 23;
+                I_BlackMarket.Left = 210;
+                I_BlackMarket.Top = 198;
+
+                I_Weaponsmith.Text = "Armeiro";
+                I_Armorsmith.Text = "Armoreiro";
+
+                //1D6 for yes or no questions
+                DiceYesNo_Label.Text = "1D6 para perguntas sim e não";
+
+                //Battle Map
+                Infinite_Dungeon_Crawler_Label.Text = "Mapa de Batalha";
+                //Battle Map Design
+                Infinite_Dungeon_Crawler_Label.Left = 650;
+                Infinite_Dungeon_Crawler_Label.Top = 182;
+
+                Enter_Dungeon_Crawler_Button.Text = "Entrar";
+
+                //Menu Player
+
+                //Player
+                Player_Label.Text = "Jogador";
+                //Player label Design
+                Player_Label.Left = 215;
+                Player_Label.Top = 108;
+
+                PlayerSheet_Button.Text = "Folha";
+                Pet_Sheet_Button.Text = "Animal";
+
+                //Dice Bag
+                DiceBag_Label.Text = "Saco de Dados";
+                //Dice Bag label Design
+                DiceBag_Label.Left = 588;
+                DiceBag_Label.Top = 108;
+
+                DB_Roll_Time.Text = "Roll para tempo";
+                //Roll for time Design
+                DB_Roll_Time.Width = 90;
+                DB_Roll_Time.Height = 23;
+                DB_Roll_Time.Left = 587;
+                DB_Roll_Time.Top = 153;
+
+                //Menu More
+                Lang_Label.Text = "Linguagem";
+
+                //version
+                Version_Label.Text = "Versão:";
+
+
+                //Menus
+                
+                //Oracle
+                OracleMenu_Button.Text = "Oráculo";
+
+                //Player
+                PlayerMenu_Button.Text = "Jogador";
+
+                //More
+                MoreMenu_Button.Text = "Mais";
+
+            }else if(lang == "0")
+            {
+                //Menu Oracle
+
+                //Hooks
+                CH_Town.Text = "Campaign";
+                AH_Town.Text = "Adventure";
+                Hooks_CustomSearch_B.Text = "Custom Search";
+                //Custom Search Design
+                Hooks_CustomSearch_B.Width = 75;
+                Hooks_CustomSearch_B.Height = 35;
+                Hooks_CustomSearch_B.Left = 159;
+                Hooks_CustomSearch_B.Top = 83;
+
+                //Side Quests
+                SideQuests_Label.Text = "Side Quests";
+                //Side Quests Design
+                SideQuests_Label.Left = 320;
+                SideQuests_Label.Top = 9;
+
+                SQ_Town_Village.Text = "Town / Village";
+                SQ_My_Quests.Text = "My Quests";
+                SQ_Online_Quests.Text = "Online Quests";
+
+                //Random Encounter
+                RE_Label.Text = "Random Encounter";
+                RE_Dungeon.Text = "Dungeon";
+                RE_Forest.Text = "Forest";
+                RE_Desert.Text = "Desert";
+                RE_Beach.Text = "Beach";
+
+                //Random NPC
+                RNPC_Label.Text = "Random NPC";
+                NPC_CustomSearch.Text = "Custom Search";
+                //Custom Search Design
+                NPC_CustomSearch.Width = 75;
+                NPC_CustomSearch.Height = 35;
+                NPC_CustomSearch.Left = 672;
+                NPC_CustomSearch.Top = 54;
+
+                //Items
+                Items_Label.Text = "Items";
+                I_Magical.Text = "Magical";
+                I_BlackMarket.Text = "Black Market";
+                //Black Market Design
+                I_BlackMarket.Width = 86;
+                I_BlackMarket.Height = 23;
+                I_BlackMarket.Left = 212;
+                I_BlackMarket.Top = 198;
+
+                I_Weaponsmith.Text = "Weaponsmith";
+                I_Armorsmith.Text = "Armorsmith";
+
+                //1D6 for yes or no questions
+                DiceYesNo_Label.Text = "1D6 for yes or no questions";
+
+                //Battle Map
+                Infinite_Dungeon_Crawler_Label.Text = "Battle Map";
+                //Battle Map label Design
+                Infinite_Dungeon_Crawler_Label.Left = 667;
+                Infinite_Dungeon_Crawler_Label.Top = 182;
+
+                Enter_Dungeon_Crawler_Button.Text = "Enter";
+
+                //Menu Player
+
+                //Player
+                Player_Label.Text = "Player";
+                //Player label Design
+                Player_Label.Left = 220;
+                Player_Label.Top = 108;
+
+                PlayerSheet_Button.Text = "sheet";
+                Pet_Sheet_Button.Text = "Pet";
+
+                //Dice Bag
+                DiceBag_Label.Text = "Dice Bag";
+                //Dice Bag label Design
+                DiceBag_Label.Left = 606;
+                DiceBag_Label.Top = 108;
+
+                DB_Roll_Time.Text = "Roll for time";
+                //Roll for time Design
+                DB_Roll_Time.Width = 80;
+                DB_Roll_Time.Height = 23;
+                DB_Roll_Time.Left = 593;
+                DB_Roll_Time.Top = 153;
+
+                //Menu More
+                Lang_Label.Text = "Language";
+
+                //version
+                Version_Label.Text = "Version:";
+
+
+                //Menus
+
+                //Oracle
+                OracleMenu_Button.Text = "Oracle";
+
+                //Player
+                PlayerMenu_Button.Text = "Player";
+
+                //More
+                MoreMenu_Button.Text = "More";
+            }
+        }
     }
 }

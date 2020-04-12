@@ -67,7 +67,7 @@
             this.Reddit_B = new System.Windows.Forms.Button();
             this.UserId_Label = new System.Windows.Forms.Label();
             this.UserID_Number = new System.Windows.Forms.Label();
-            this.SD_Custom_Quests = new System.Windows.Forms.Button();
+            this.SQ_Online_Quests = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Pet_Sheet_Button = new System.Windows.Forms.Button();
             this.P_Spell_List_Button = new System.Windows.Forms.Button();
@@ -77,6 +77,8 @@
             this.Twitter_B = new System.Windows.Forms.Button();
             this.Enter_Dungeon_Crawler_Button = new System.Windows.Forms.Button();
             this.Infinite_Dungeon_Crawler_Label = new System.Windows.Forms.Label();
+            this.choose_Language = new System.Windows.Forms.ComboBox();
+            this.Lang_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,9 +118,9 @@
             this.DiceYesNo_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DiceYesNo_Label.Location = new System.Drawing.Point(625, 124);
             this.DiceYesNo_Label.Name = "DiceYesNo_Label";
-            this.DiceYesNo_Label.Size = new System.Drawing.Size(166, 13);
+            this.DiceYesNo_Label.Size = new System.Drawing.Size(163, 13);
             this.DiceYesNo_Label.TabIndex = 5;
-            this.DiceYesNo_Label.Text = "Dice for yes or no questions";
+            this.DiceYesNo_Label.Text = "1D6 for yes or no questions";
             // 
             // Version_Label
             // 
@@ -474,15 +476,14 @@
             this.UserID_Number.Size = new System.Drawing.Size(0, 13);
             this.UserID_Number.TabIndex = 49;
             // 
-            // SD_Custom_Quests
+            // SQ_Online_Quests
             // 
-            this.SD_Custom_Quests.Location = new System.Drawing.Point(320, 94);
-            this.SD_Custom_Quests.Name = "SD_Custom_Quests";
-            this.SD_Custom_Quests.Size = new System.Drawing.Size(75, 37);
-            this.SD_Custom_Quests.TabIndex = 50;
-            this.SD_Custom_Quests.Text = "Custom Quests";
-            this.SD_Custom_Quests.UseVisualStyleBackColor = true;
-            this.SD_Custom_Quests.Click += new System.EventHandler(this.SD_Custom_Quests_Click);
+            this.SQ_Online_Quests.Location = new System.Drawing.Point(320, 94);
+            this.SQ_Online_Quests.Name = "SQ_Online_Quests";
+            this.SQ_Online_Quests.Size = new System.Drawing.Size(75, 37);
+            this.SQ_Online_Quests.TabIndex = 50;
+            this.SQ_Online_Quests.Text = "Online Quests";
+            this.SQ_Online_Quests.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -575,12 +576,34 @@
             this.Infinite_Dungeon_Crawler_Label.TabIndex = 59;
             this.Infinite_Dungeon_Crawler_Label.Text = "Battle Map";
             // 
+            // choose_Language
+            // 
+            this.choose_Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.choose_Language.FormattingEnabled = true;
+            this.choose_Language.Location = new System.Drawing.Point(376, 250);
+            this.choose_Language.Name = "choose_Language";
+            this.choose_Language.Size = new System.Drawing.Size(121, 21);
+            this.choose_Language.TabIndex = 60;
+            this.choose_Language.SelectedIndexChanged += new System.EventHandler(this.choose_Language_SelectedIndexChanged);
+            // 
+            // Lang_Label
+            // 
+            this.Lang_Label.AutoSize = true;
+            this.Lang_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lang_Label.Location = new System.Drawing.Point(405, 236);
+            this.Lang_Label.Name = "Lang_Label";
+            this.Lang_Label.Size = new System.Drawing.Size(63, 13);
+            this.Lang_Label.TabIndex = 61;
+            this.Lang_Label.Text = "Language";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 316);
+            this.Controls.Add(this.Lang_Label);
+            this.Controls.Add(this.choose_Language);
             this.Controls.Add(this.Infinite_Dungeon_Crawler_Label);
             this.Controls.Add(this.Enter_Dungeon_Crawler_Button);
             this.Controls.Add(this.Twitter_B);
@@ -590,7 +613,7 @@
             this.Controls.Add(this.P_Spell_List_Button);
             this.Controls.Add(this.Pet_Sheet_Button);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.SD_Custom_Quests);
+            this.Controls.Add(this.SQ_Online_Quests);
             this.Controls.Add(this.UserID_Number);
             this.Controls.Add(this.UserId_Label);
             this.Controls.Add(this.Reddit_B);
@@ -681,7 +704,7 @@
         private System.Windows.Forms.Button Reddit_B;
         private System.Windows.Forms.Label UserId_Label;
         private System.Windows.Forms.Label UserID_Number;
-        private System.Windows.Forms.Button SD_Custom_Quests;
+        private System.Windows.Forms.Button SQ_Online_Quests;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Pet_Sheet_Button;
         private System.Windows.Forms.Button P_Spell_List_Button;
@@ -691,6 +714,8 @@
         private System.Windows.Forms.Button Twitter_B;
         private System.Windows.Forms.Button Enter_Dungeon_Crawler_Button;
         private System.Windows.Forms.Label Infinite_Dungeon_Crawler_Label;
+        private System.Windows.Forms.ComboBox choose_Language;
+        private System.Windows.Forms.Label Lang_Label;
     }
 }
 
