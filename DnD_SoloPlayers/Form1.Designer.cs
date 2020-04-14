@@ -484,6 +484,7 @@
             this.SQ_Online_Quests.TabIndex = 50;
             this.SQ_Online_Quests.Text = "Online Quests";
             this.SQ_Online_Quests.UseVisualStyleBackColor = true;
+            this.SQ_Online_Quests.Click += new System.EventHandler(this.SQ_Online_Quests_Click);
             // 
             // label1
             // 

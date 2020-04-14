@@ -454,7 +454,7 @@ namespace DungeonCrawler_UserControl
                 Monster_Positions1[i].Last_Monster_Position_Y = pY;
 
                 clicks++;
-                if (clicks == 7)
+                if (clicks == 10)
                 {
                     List_Last_Positions1.RemoveAt(0);
                     clicks = 0;
