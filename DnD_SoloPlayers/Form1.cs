@@ -10,7 +10,7 @@ namespace DnD_SoloPlayers
     public partial class Form1 : Form
     {
         static string version = "";
-        static string actualVersion = "1.5.0";
+        static string actualVersion = "2.0.0";
         static string checkId = "";
 
         static string lang = "";
@@ -22,218 +22,16 @@ namespace DnD_SoloPlayers
 
             try
             {
-                string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
 
-                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
-                {
-                    conn.Open();
+                Version_Update_MSG.Text = "2.0.0";
+                B_Update.Visible = false;
 
-                    XmlDocument userid = new XmlDocument();
-                    userid.Load(filename: "xml\\user\\userId.xml");
 
-                    XmlNodeList idX = userid.GetElementsByTagName("userId");
-
-                    foreach (XmlNode node in idX)
-                    {
-                        checkId = node.InnerText;
-                    }
-
-                    if (checkId.Equals("") || checkId.Equals(" "))
-                    {
-                        Random uid = new Random();
-
-                        int id = uid.Next(0, 999999999);
-                        string ConvertId = id.ToString();
-
-                        foreach (XmlNode node in idX)
-                        {
-                            node.InnerText = ConvertId;
-                        }
-
-                        userid.Save(filename: "xml\\user\\userid.xml");
-
-                        MySqlCommand insert = new MySqlCommand("INSERT INTO usageTrack (id, usedTimes) VALUES ("+ConvertId+","+1+")",conn);
-                        insert.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                    else
-                    {
-                        using (MySqlCommand select = new MySqlCommand("SELECT usedTimes FROM usageTrack WHERE id="+checkId+"",conn))
-                        {
-                            MySqlDataReader reader = select.ExecuteReader();
-                            int getUsedTimes = 0;
-                            if (reader.HasRows)
-                            {
-                                while (reader.Read())
-                                {
-                                    getUsedTimes = (int)reader["usedTimes"];
-                                }
-                            }
-
-                            reader.Close();
-
-                            int updateUsedTimes = getUsedTimes + 1;
-
-                            MySqlCommand update = new MySqlCommand("UPDATE usageTrack SET usedTimes="+updateUsedTimes+" WHERE id="+checkId+"",conn);
-                            update.ExecuteNonQuery();
-                            conn.Close();
-                        }
-                    }
-                }                
-            }
-            catch
-            {
-            }
-
-            try
-            {
-                XmlDocument userid = new XmlDocument();
-                userid.Load(filename: "xml\\user\\userId.xml");
-
-                XmlNodeList idX = userid.GetElementsByTagName("userId");
-
-                foreach (XmlNode node in idX)
-                {
-                    checkId = node.InnerText;
-                }
-
-                string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
-                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
-                {
-                    conn.Open();
-
-                    using(MySqlCommand a = new MySqlCommand("INSERT INTO activeUsers(userId) VALUES ("+checkId+")", conn))
-                    {
-                        a.ExecuteNonQuery();
-                    }
-                    conn.Close();
-                }
-            }
-            catch
-            {
-
-            }
-
-            try
-            {
-                string a = "https://dndoracle.com/DnD_SoloPlayers/version.xml";
-
-                XmlDocument versionxml = new XmlDocument();
-                versionxml.Load(a);
-
-                XmlNodeList nodeList = versionxml.GetElementsByTagName("version");
-               
-                foreach (XmlNode node in nodeList)
-                {
-                    version = node.InnerText;
-                }
-                
-                if (version.Equals(actualVersion))
-                {
-                    Version_Update_MSG.Text = version;
-                    B_Update.Visible = false;
-                }
-                else
-                {
-                    Version_Update_MSG.Text = "New update available!";
-                    B_Update.Visible = true;
-                }
-
-                
             }
             catch
             {
                 Version_Update_MSG.Text = "Couldn't connect with the server...";
                 Whats_New_Button.Visible = false;
-            }
-
-            try
-            {
-                if(B_Update.Visible == false)
-                {
-                    XmlDocument showBox = new XmlDocument();
-                    showBox.Load(filename: "xml\\updates.xml");
-
-                    XmlNodeList showBoxNodeList = showBox.GetElementsByTagName("open");
-                    string open = "";
-                    string b = "false";
-
-                    if (open.Equals(""))
-                    {
-                        foreach (XmlNode node in showBoxNodeList)
-                        {
-                            open = node.InnerText;
-                        }
-
-                        if (open.Equals("true"))
-                        {
-                            foreach (XmlNode node in showBoxNodeList)
-                            {
-                                node.InnerText = b;
-                            }
-                            showBox.Save(filename: "xml\\updates.xml");
-                            new Updates_Panel().Show();
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                
-            }
-
-            int getActiveUsers = 0;
-            int getRecordUsers = 0;
-
-            try
-            {
-                string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
-                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
-                {
-                    conn.Open();
-
-                    using(MySqlCommand c = new MySqlCommand("SELECT COUNT(*) FROM activeUsers", conn))
-                    {
-                        c.ExecuteNonQuery();
-                        MySqlDataReader reader = c.ExecuteReader();
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                getActiveUsers = (int)reader["userId"];
-                            }
-                        }
-                    }
-
-                    conn.Close();
-                    conn.Open();
-
-                    using(MySqlCommand b = new MySqlCommand("SELECT * FROM recordUsers", conn))
-                    {
-                        b.ExecuteNonQuery();
-                        MySqlDataReader reader2 = b.ExecuteReader();
-                        if (reader2.HasRows)
-                        {
-                            while (reader2.Read())
-                            {
-                                getRecordUsers = (int)reader2["num"];
-                            }
-                        }
-                    }
-
-                    if(getActiveUsers > getRecordUsers)
-                    {
-                        using (MySqlCommand a = new MySqlCommand("UPDATE recordUsers SET num = "+getActiveUsers, conn))
-                        {
-                            a.ExecuteNonQuery();
-                        }
-                        conn.Close();
-                    }
-                }
-            }
-            catch
-            {
-
             }
 
             //change button color
@@ -375,9 +173,7 @@ namespace DnD_SoloPlayers
 
         private void B_OW_Click(object sender, EventArgs e)
         {
-            string owUrl = "https://dndoracle.com/";
-
-            System.Diagnostics.Process.Start(owUrl);
+            MessageBox.Show("The website no longer exists");
         }
 
         private void RE_Forest_Click(object sender, EventArgs e) => new RE_Forest().Show();
@@ -459,16 +255,7 @@ namespace DnD_SoloPlayers
             SQ_Online_Quests.Visible = true;
             Infinite_Dungeon_Crawler_Label.Visible = true;
             Enter_Dungeon_Crawler_Button.Visible = true;
-            if (version.Equals(actualVersion))
-            {
-                Version_Update_MSG.Text = version;
-                B_Update.Visible = false;
-            }
-            else
-            {
-                Version_Update_MSG.Text = "New update available!";
-                B_Update.Visible = true;
-            }
+            
         }
 
         private void PlayerMenu_Button_Click(object sender, EventArgs e)
@@ -526,16 +313,7 @@ namespace DnD_SoloPlayers
             Version_Update_MSG.Visible = true;
             UserId_Label.Visible = true;
             UserID_Number.Visible = true;
-            if (version.Equals(actualVersion))
-            {
-                Version_Update_MSG.Text = version;
-                B_Update.Visible = false;
-            }
-            else
-            {
-                Version_Update_MSG.Text = "New update available!";
-                B_Update.Visible = true;
-            }
+           
         }
 
         private void MoreMenu_Button_Click(object sender, EventArgs e)
@@ -593,16 +371,7 @@ namespace DnD_SoloPlayers
             Twitter_B.Visible = true;
             choose_Language.Visible = true;
             Lang_Label.Visible = true;
-            if (version.Equals(actualVersion))
-            {
-                Version_Update_MSG.Text = version;
-                B_Update.Visible = false;
-            }
-            else
-            {
-                Version_Update_MSG.Text = "New update available!";
-                B_Update.Visible = true;
-            }
+            
         }
 
         private void Reddit_B_Click(object sender, EventArgs e)
@@ -614,78 +383,15 @@ namespace DnD_SoloPlayers
 
         private void Documentation_B_Click(object sender, EventArgs e)
         {
-            string DocUrl = "https://dndoracle.com/documentation.html";
-
-            System.Diagnostics.Process.Start(DocUrl);
+            MessageBox.Show("The website no longer exists");
         }
 
-        private void SQ_Online_Quests_Click(object sender, EventArgs e) => new SD_Custom_Quests().Show();
+        private void SQ_Online_Quests_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This doesn't work anymore. There's no database");
+        }
 
         private void Pet_Sheet_Button_Click(object sender, EventArgs e) => new Pet_Sheet().Show();
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                XmlDocument userid = new XmlDocument();
-                userid.Load(filename: "xml\\user\\userId.xml");
-
-                XmlNodeList idX = userid.GetElementsByTagName("userId");
-
-                foreach (XmlNode node in idX)
-                {
-                    checkId = node.InnerText;
-                }
-
-                string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
-                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
-                {
-                    conn.Open();
-
-                    using (MySqlCommand a = new MySqlCommand("DELETE FROM activeUsers WHERE userId = " + checkId + "", conn))
-                    {
-                        a.ExecuteNonQuery();
-                    }
-                    conn.Close();
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            try
-            {
-                XmlDocument userid = new XmlDocument();
-                userid.Load(filename: "xml\\user\\userId.xml");
-
-                XmlNodeList idX = userid.GetElementsByTagName("userId");
-
-                foreach (XmlNode node in idX)
-                {
-                    checkId = node.InnerText;
-                }
-
-                string ConnectionString = "Server=sv1.byethost1.org; Port=3306; Database=bxxxirep_UsageTrack; Uid=bxxxirep_UsageTr; Pwd=S%W$Kv&E4j%LqVfaH,";
-                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
-                {
-                    conn.Open();
-
-                    using (MySqlCommand a = new MySqlCommand("DELETE FROM activeUsers WHERE userId = " + checkId + "", conn))
-                    {
-                        a.ExecuteNonQuery();
-                    }
-                    conn.Close();
-                }
-            }
-            catch
-            {
-
-            }
-        }
 
         private void P_Spell_List_Button_Click(object sender, EventArgs e) => new Spell_List().Show();
 

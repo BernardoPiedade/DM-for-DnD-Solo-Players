@@ -34,7 +34,8 @@ namespace DnD_SoloPlayers
             string v147 = "Version: 1.4.7 \r\nNew: \r\n\t Message from the developer: \"Last update brought some new bugs, sorry for\r\n\t the inconvenience\"\r\n\t-> Changed database location;\r\n\t-> Fixed bugs from last update;\r\n\t-> Fixed some issues in the design;";
             string v150 = "Version: 1.5.0 \r\nNew: \r\n\t-> Added Random Combat;\r\n\t-> Fixed minor bugs that came with version 1.4.7\r\n\t-> Changed database provider";
             string v151 = "Version: 1.5.1 \r\nNew: \r\n\t-> Add language pack (Portuguese & English);\r\n\t-> Design Changes (version 3.0b);";
-            string v152 = "Version: 1.5.2 \r\nNew: \r\n\t-> Fixed bug with Online Quests created from update 1.5.1";
+            string v152 = "Version: 1.5.2 \r\nNew: \r\n\t-> Fixed bug with Online Quests created from update 1.5.1;";
+            string v200 = "Version: 2.0.0 \r\nNew: \r\n\t-> Open Source!;";
 
             textBox1.Text = v152 + "\r\n\r\n" + v151 + "\r\n\r\n" + v150 + "\r\n\r\n" + v147 + "\r\n\r\n" + v146 + "\r\n\r\n" + v144 + "\r\n\r\n" + v143 + "\r\n\r\n" + v141 + "\r\n\r\n" + v140 + "\r\n\r\n" + v124 + "\r\n\r\n" + v120 + "\r\n\r\n" + v113 + "\r\n\r\n" + v100 + "\r\n\r\n" + v076a + "\r\n\r\n" + v060 + "\r\n\r\n" + v058;
         }

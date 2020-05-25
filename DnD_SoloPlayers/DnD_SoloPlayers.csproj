@@ -121,12 +121,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add_Side_Quest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Add_Side_Quest.Designer.cs">
-      <DependentUpon>Add_Side_Quest.cs</DependentUpon>
-    </Compile>
     <Compile Include="AH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,12 +261,6 @@
     <Compile Include="RNPC.Designer.cs">
       <DependentUpon>RNPC.cs</DependentUpon>
     </Compile>
-    <Compile Include="SD_Custom_Quests.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SD_Custom_Quests.Designer.cs">
-      <DependentUpon>SD_Custom_Quests.cs</DependentUpon>
-    </Compile>
     <Compile Include="SpellList_Class.cs" />
     <Compile Include="Spell_List.cs">
       <SubType>Form</SubType>
@@ -298,9 +286,6 @@
     <Compile Include="Updates_Panel.Designer.cs">
       <DependentUpon>Updates_Panel.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Add_Side_Quest.resx">
-      <DependentUpon>Add_Side_Quest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AH.resx">
       <DependentUpon>AH.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,9 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RNPC.resx">
       <DependentUpon>RNPC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SD_Custom_Quests.resx">
-      <DependentUpon>SD_Custom_Quests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQ_My_Quests.resx">
       <DependentUpon>SQ_My_Quests.cs</DependentUpon>
